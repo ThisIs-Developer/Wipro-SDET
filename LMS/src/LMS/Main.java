@@ -28,7 +28,8 @@ public class Main {
             System.out.println("4. View Courses");
             System.out.println("5. Enroll Student");
             System.out.println("6. Add Grade");
-            System.out.println("7. Exit");
+            System.out.println("7. Delete Student");
+            System.out.println("8. Exit");
 
             System.out.print("Choose Option: ");
 
@@ -61,6 +62,10 @@ public class Main {
                     break;
 
                 case 7:
+                    StudentService.deleteStudent(sc);
+                    break;
+
+                case 8:
                     System.out.println("✅ Exiting LMS...");
                     return;
 
