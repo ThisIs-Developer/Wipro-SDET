@@ -57,4 +57,28 @@ public class StudentService {
             e.printStackTrace();
         }
     }
+    
+    public static void deleteStudent(Scanner sc) {
+
+        try(Connection con = DBConnection.getConnection()) {
+
+            System.out.print("Enter Student ID to Delete: ");
+            int studentId = Integer.parseInt(sc.nextLine());
+
+            String sql = "delete from students where student_id=?";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, studentId);
+
+            int rows = ps.executeUpdate();
+
+            if(rows > 0)
+                System.out.println("✅ Student Deleted Successfully");
+            else
+                System.out.println("❌ Student ID Not Found");
+
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
