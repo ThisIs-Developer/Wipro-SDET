@@ -22,22 +22,22 @@ public class Amazon_Verify {
         
         WebDriverWait wait =
                 new WebDriverWait(driver, Duration.ofSeconds(15));
-//
-//        WebElement email = wait.until(
-//                ExpectedConditions.elementToBeClickable(
-//                        By.id("ap_email_login"))
-//        );
-//        email.sendKeys("");
-//        email.sendKeys(Keys.ENTER);
-//
-//        Thread.sleep(2000);
-//        WebElement password = driver.findElement(By.id("ap_password"));
-//        password.sendKeys("");
-//        password.sendKeys(Keys.ENTER);
-//		
-//        Thread.sleep(11000);
-//        WebElement otpsubmit = driver.findElement(By.id("auth-signin-button"));
-//        otpsubmit.sendKeys(Keys.ENTER);
+
+        WebElement email = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.id("ap_email_login"))
+        );
+        email.sendKeys("baivabsarkar@gmail.com");
+        email.sendKeys(Keys.ENTER);
+
+        Thread.sleep(2000);
+        WebElement password = driver.findElement(By.id("ap_password"));
+        password.sendKeys("");
+        password.sendKeys(Keys.ENTER);
+		
+        Thread.sleep(11000);
+        WebElement otpsubmit = driver.findElement(By.id("auth-signin-button"));
+        otpsubmit.sendKeys(Keys.ENTER);
         
         WebElement search = driver.findElement(By.xpath("/html/body/div[1]/header/div/div[1]/div[2]/div/form/div[2]/div[1]/input"));
 		search.click();
@@ -64,7 +64,5 @@ public class Amazon_Verify {
 		WebElement buyBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.name("proceedToRetailCheckout")));
 		buyBtn.click();
-		
 	}
-
 }
