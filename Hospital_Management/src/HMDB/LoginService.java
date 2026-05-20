@@ -1,6 +1,5 @@
 package HMDB;
 import java.sql.*;
-import java.util.Scanner;
 
 public class LoginService {
     public static boolean login(String username, String password) {

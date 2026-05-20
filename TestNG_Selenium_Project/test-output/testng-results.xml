@@ -1,25 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="6" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-20T19:05:20 IST" name="Default suite" finished-at="2026-05-20T19:06:05 IST" duration-ms="45390">
+  <suite started-at="2026-05-20T22:03:04 IST" name="Default suite" finished-at="2026-05-20T22:06:18 IST" duration-ms="193550">
     <groups>
     </groups>
-    <test started-at="2026-05-20T19:05:20 IST" name="Default test" finished-at="2026-05-20T19:06:05 IST" duration-ms="45390">
+    <test started-at="2026-05-20T22:03:04 IST" name="Default test" finished-at="2026-05-20T22:06:18 IST" duration-ms="193550">
       <class name="Testing_Pratice.Amazon_Automation">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@3c41ed1d]" started-at="2026-05-20T19:05:20 IST" name="beforeTest" finished-at="2026-05-20T19:05:25 IST" duration-ms="5513" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:03:04 IST" name="beforeTest" finished-at="2026-05-20T22:03:10 IST" duration-ms="5646" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="login()[pri:2, instance:Testing_Pratice.Amazon_Automation@3c41ed1d]" started-at="2026-05-20T19:05:25 IST" name="login" finished-at="2026-05-20T19:06:03 IST" duration-ms="37606" status="PASS">
+        <test-method signature="registration()[pri:1, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:03:10 IST" name="registration" finished-at="2026-05-20T22:04:01 IST" duration-ms="51399" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- registration -->
+        <test-method signature="login()[pri:2, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:04:01 IST" name="login" finished-at="2026-05-20T22:04:36 IST" duration-ms="35132" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="updateAddress()[pri:7, instance:Testing_Pratice.Amazon_Automation@3c41ed1d]" started-at="2026-05-20T19:06:03 IST" name="updateAddress" finished-at="2026-05-20T19:06:05 IST" duration-ms="1806" status="PASS">
+        <test-method signature="search_Engine()[pri:3, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:04:36 IST" name="search_Engine" finished-at="2026-05-20T22:05:08 IST" duration-ms="31804" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_Engine -->
+        <test-method signature="add_to_cart()[pri:4, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:05:08 IST" name="add_to_cart" finished-at="2026-05-20T22:05:50 IST" duration-ms="42403" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_to_cart -->
+        <test-method signature="viewProduct()[pri:5, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:05:50 IST" name="viewProduct" finished-at="2026-05-20T22:05:56 IST" duration-ms="5053" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- viewProduct -->
+        <test-method signature="remove_from_cart()[pri:6, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:05:56 IST" name="remove_from_cart" finished-at="2026-05-20T22:06:06 IST" duration-ms="10596" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- remove_from_cart -->
+        <test-method signature="updateAddress()[pri:7, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:06:06 IST" name="updateAddress" finished-at="2026-05-20T22:06:17 IST" duration-ms="10621" status="FAIL">
+          <exception class="org.openqa.selenium.TimeoutException">
+            <message>
+              <![CDATA[Expected condition failed: waiting for visibility of element found by By.xpath: /html/body/div[1]/header/div/div[1]/div[3]/div/a[2], but... org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/header/div/div[1]/div[3]/div/a[2]"}.
+(tried for 10 seconds with 500 milliseconds interval)
+Build info: version: '4.44.0', revision: 'da2039b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64950}, goog:processID: 5648, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64950/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a5f409b88cfae2956e2ea062ab3265fd]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element found by By.xpath: /html/body/div[1]/header/div/div[1]/div[3]/div/a[2], but... org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/header/div/div[1]/div[3]/div/a[2]"}.
+(tried for 10 seconds with 500 milliseconds interval)
+Build info: version: '4.44.0', revision: 'da2039b'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:64950}, goog:processID: 5648, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:64950/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: a5f409b88cfae2956e2ea062ab3265fd
+at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:85)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:234)
+at Testing_Pratice.Amazon_Automation.updateAddress(Amazon_Automation.java:216)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.TimeoutException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- updateAddress -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@3c41ed1d]" started-at="2026-05-20T19:06:05 IST" name="afterTest" finished-at="2026-05-20T19:06:05 IST" duration-ms="362" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-20T22:06:17 IST" name="afterTest" finished-at="2026-05-20T22:06:18 IST" duration-ms="743" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
