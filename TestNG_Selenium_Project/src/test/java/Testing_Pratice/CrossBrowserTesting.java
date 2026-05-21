@@ -11,25 +11,28 @@ import org.testng.annotations.AfterTest;
 public class CrossBrowserTesting {
   WebDriver driver;
 		
-  @Test
-  public void chrome() {
+  @Test (groups = {"Smoke"})
+  public void chrome() throws InterruptedException {
 	  driver = new ChromeDriver();
 	  driver.manage().window().maximize();
-	  driver.get("https://www.selenium.dev/"); 
+	  driver.get("https://www.selenium.dev/");
+	  Thread.sleep(2000);
   }
   
-  @Test
-  public void edge() {
+  @Test (groups = {"Regression"})
+  public void edge() throws InterruptedException {
 	  driver = new EdgeDriver();
 	  driver.manage().window().maximize();
 	  driver.get("https://www.selenium.dev/"); 
+	  Thread.sleep(2000);
   }
   
-  @Test
-  public void firefox() {
+  @Test (groups = {"Smoke"})
+  public void firefox() throws InterruptedException {
 	  driver = new FirefoxDriver();
 	  driver.manage().window().maximize();
 	  driver.get("https://www.selenium.dev/"); 
+	  Thread.sleep(2000);
   }
 
   @AfterTest

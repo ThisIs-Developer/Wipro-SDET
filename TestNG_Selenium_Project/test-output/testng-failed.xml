@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Testing_Pratice.Login_Validation">
+      <class name="Testing_Pratice.RegisterUser">
         <methods>
-          <include name="loginVerify" invocation-numbers="0 1 2 3 4 5 6 7 8"/>
+          <include name="beforeTest"/>
+          <include name="registrationTest" invocation-numbers="0"/>
           <include name="afterTest"/>
-          <include name="beforetest"/>
         </methods>
-      </class> <!-- Testing_Pratice.Login_Validation -->
+      </class> <!-- Testing_Pratice.RegisterUser -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
