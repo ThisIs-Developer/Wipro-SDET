@@ -5,7 +5,9 @@ import org.testng.annotations.BeforeTest;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -32,6 +34,12 @@ public class AutomationExercise {
 		  System.out.println("Home Page Verified");
 	  } catch(Exception e) {
 		  System.out.println("Home Page Not loaded");
+	  }
+	  try {
+		  WebElement findBtn = driver.findElement(By.cssSelector(""));
+		  findBtn.click();
+	  }catch (Exception e) {
+		  System.out.println("Log");
 	  }
 	  
   }
