@@ -1,187 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="1" failed="4" skipped="0">
+<testng-results ignored="0" total="7" passed="5" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-21T21:35:02 IST" name="Default suite" finished-at="2026-05-21T21:35:35 IST" duration-ms="33246">
+  <suite started-at="2026-05-22T00:24:46 IST" name="Default suite" finished-at="2026-05-22T00:28:35 IST" duration-ms="229226">
     <groups>
     </groups>
-    <test started-at="2026-05-21T21:35:02 IST" name="Default test" finished-at="2026-05-21T21:35:35 IST" duration-ms="33246">
-      <class name="Testing_Pratice.Registration">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:02 IST" name="beforeTest" finished-at="2026-05-21T21:35:05 IST" duration-ms="3016" status="PASS">
+    <test started-at="2026-05-22T00:24:46 IST" name="Default test" finished-at="2026-05-22T00:28:35 IST" duration-ms="229226">
+      <class name="Testing_Pratice.Amazon_Automation">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:24:46 IST" name="beforeTest" finished-at="2026-05-22T00:25:03 IST" duration-ms="17310" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="registrationTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:05 IST" name="registrationTest" data-provider="data" finished-at="2026-05-21T21:35:25 IST" duration-ms="20177" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[User1]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test1]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Address1]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[user1test101@gmail.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[9876543210]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Male]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Cricket]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[English]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[C]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[1999]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[January]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[10]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Pass@123]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Pass@123]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="registration()[pri:1, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:25:03 IST" name="registration" finished-at="2026-05-22T00:25:59 IST" duration-ms="56106" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registrationTest -->
-        <test-method signature="registrationTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:25 IST" name="registrationTest" data-provider="data" finished-at="2026-05-21T21:35:27 IST" duration-ms="2371" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[User2]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test2]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Address2]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[user2test102@gmail.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[9876543211]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Female]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Movies]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Hindi]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[C++]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[2000]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[February]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[11]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Pass@234]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Pass@234]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        </test-method> <!-- registration -->
+        <test-method signature="login()[pri:2, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:25:59 IST" name="login" finished-at="2026-05-22T00:26:40 IST" duration-ms="40715" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="search_Engine()[pri:3, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:26:40 IST" name="search_Engine" finished-at="2026-05-22T00:27:09 IST" duration-ms="28901" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- search_Engine -->
+        <test-method signature="add_to_cart()[pri:4, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:27:09 IST" name="add_to_cart" finished-at="2026-05-22T00:27:52 IST" duration-ms="42886" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- add_to_cart -->
+        <test-method signature="viewProduct()[pri:5, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:27:52 IST" name="viewProduct" finished-at="2026-05-22T00:28:35 IST" duration-ms="42996" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[element click intercepted: Element <input type="checkbox" id="checkbox2" value="Movies"> is not clickable at point (503, 499). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
+              <![CDATA[invalid session id
 Build info: version: '4.44.0', revision: 'da2039b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.320}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Movies']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796]]>
+Command: [0721eadd1fba32f035e909c73a906f90, switchToWindow {handle=CB2735431126806728959CC8AD168B94}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0721eadd1fba32f035e909c73a906f90]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <input type="checkbox" id="checkbox2" value="Movies"> is not clickable at point (503, 499). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: '4.44.0', revision: 'da2039b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.320}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Movies']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796
+Command: [0721eadd1fba32f035e909c73a906f90, switchToWindow {handle=CB2735431126806728959CC8AD168B94}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0721eadd1fba32f035e909c73a906f90
 at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -189,9 +53,8 @@ at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.ja
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:225)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-at Testing_Pratice.Registration.registrationTest(Registration.java:124)
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.window(RemoteWebDriver.java:1271)
+at Testing_Pratice.Amazon_Automation.viewProduct(Amazon_Automation.java:200)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -220,105 +83,33 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registrationTest -->
-        <test-method signature="registrationTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:28 IST" name="registrationTest" data-provider="data" finished-at="2026-05-21T21:35:30 IST" duration-ms="2327" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[User3]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test3]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Address3]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[user3test103@gmail.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[9876543212]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Male]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Hockey]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[English]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[API]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[2001]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[March]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Pass@345]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Pass@345]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+        </test-method> <!-- viewProduct -->
+        <test-method signature="remove_from_cart()[pri:6, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:28:35 IST" name="remove_from_cart" finished-at="2026-05-22T00:28:35 IST" duration-ms="15" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- remove_from_cart -->
+        <test-method signature="updateAddress()[pri:7, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:28:35 IST" name="updateAddress" finished-at="2026-05-22T00:28:35 IST" duration-ms="18" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchSessionException">
             <message>
-              <![CDATA[element click intercepted: Element <input type="checkbox" id="checkbox3" value="Hockey"> is not clickable at point (502, 519). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
+              <![CDATA[invalid session id
 Build info: version: '4.44.0', revision: 'da2039b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.321}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Hockey']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796]]>
+Command: [0721eadd1fba32f035e909c73a906f90, findElement {using=name, value=proceedToRetailCheckout}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0721eadd1fba32f035e909c73a906f90]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <input type="checkbox" id="checkbox3" value="Hockey"> is not clickable at point (502, 519). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
+              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
 Build info: version: '4.44.0', revision: 'da2039b'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.321}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Hockey']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796
+Command: [0721eadd1fba32f035e909c73a906f90, findElement {using=name, value=proceedToRetailCheckout}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 0721eadd1fba32f035e909c73a906f90
 at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
 at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -326,9 +117,14 @@ at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.ja
 at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:225)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-at Testing_Pratice.Registration.registrationTest(Registration.java:124)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:173)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:67)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:421)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:415)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:222)
+at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:215)
+at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:210)
+at Testing_Pratice.Amazon_Automation.updateAddress(Amazon_Automation.java:218)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -357,289 +153,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- registrationTest -->
-        <test-method signature="registrationTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:30 IST" name="registrationTest" data-provider="data" finished-at="2026-05-21T21:35:32 IST" duration-ms="2065" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[User4]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test4]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Address4]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[user4test104@gmail.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[9876543213]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Female]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Cricket]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[English]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[Java]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[2002]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[April]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[13]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Pass@456]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Pass@456]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <input type="checkbox" id="checkbox1" value="Cricket"> is not clickable at point (503, 479). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.319}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Cricket']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <input type="checkbox" id="checkbox1" value="Cricket"> is not clickable at point (503, 479). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.319}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Cricket']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:224)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:225)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-at Testing_Pratice.Registration.registrationTest(Registration.java:124)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:744)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registrationTest -->
-        <test-method signature="registrationTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:32 IST" name="registrationTest" data-provider="data" finished-at="2026-05-21T21:35:34 IST" duration-ms="2486" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[User5]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test5]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Address5]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[user5test105@gmail.com]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[9876543214]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Male]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[Movies]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[Hindi]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[Linux]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[2003]]>
-              </value>
-            </param>
-            <param index="10">
-              <value>
-                <![CDATA[May]]>
-              </value>
-            </param>
-            <param index="11">
-              <value>
-                <![CDATA[14]]>
-              </value>
-            </param>
-            <param index="12">
-              <value>
-                <![CDATA[Pass@567]]>
-              </value>
-            </param>
-            <param index="13">
-              <value>
-                <![CDATA[Pass@567]]>
-              </value>
-            </param>
-          </params>
-          <exception class="org.openqa.selenium.ElementClickInterceptedException">
-            <message>
-              <![CDATA[element click intercepted: Element <input type="checkbox" id="checkbox2" value="Movies"> is not clickable at point (503, 499). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.320}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Movies']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <input type="checkbox" id="checkbox2" value="Movies"> is not clickable at point (503, 499). Other element would receive the click: <iframe id="aswift_2" name="aswift_2" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 936px !important; height: 120px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="936" height="120" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="https://googleads.g.doubleclick.net/pagead/html/r20260519/r20190131/zrt_lookup_fy2021.html#RS-0-&amp;adk=1812271801&amp;client=ca-pub-9173866185064071&amp;fa=1&amp;ifi=3&amp;uci=a!3" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CILJ-qLhypQDFUdAwgUd9QQDIw" data-load-complete="true"></iframe>
-  (Session info: chrome=148.0.7778.178)
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [4a04bde44fb2c99951dcf9466edc6796, clickElement {id=f.7BA7EB60CDEB60B07161E161B828BEC8.d.57196EF7289547F706661A5F7E2FD5FE.e.320}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:62856}, goog:processID: 8864, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:62856/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (4a04bde44fb2c99951dcf9466edc6796)] -> xpath: //input[@value='Movies']]
-Session ID: 4a04bde44fb2c99951dcf9466edc6796
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:224)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:225)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:79)
-at Testing_Pratice.Registration.registrationTest(Registration.java:124)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-at org.testng.TestRunner.privateRun(TestRunner.java:744)
-at org.testng.TestRunner.run(TestRunner.java:616)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-at org.testng.TestNG.runSuites(TestNG.java:1112)
-at org.testng.TestNG.run(TestNG.java:1079)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registrationTest -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:Testing_Pratice.Registration@3fc2959f]" started-at="2026-05-21T21:35:34 IST" name="afterTest" finished-at="2026-05-21T21:35:35 IST" duration-ms="643" status="PASS">
+        </test-method> <!-- updateAddress -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:28:35 IST" name="afterTest" finished-at="2026-05-22T00:28:35 IST" duration-ms="97" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- Testing_Pratice.Registration -->
+      </class> <!-- Testing_Pratice.Amazon_Automation -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

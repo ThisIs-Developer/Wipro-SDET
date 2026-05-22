@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class Amazon_Automation {
 
     WebDriver driver;
     WebDriverWait wait;
+    JavascriptExecutor js;
 
     @BeforeTest
     public void beforeTest() {
@@ -213,30 +215,30 @@ public class Amazon_Automation {
 
     @Test(priority = 7)
     public void updateAddress() throws InterruptedException {
-    	WebElement goCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[1]/header/div/div[1]/div[3]/div/a[2]")));
-        goCart.click();
+    	WebElement procedbtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("proceedToRetailCheckout")));
+    	procedbtn.click();
 
         try {
-            WebElement proceedToCheckout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"checkout-deliveryAddressPanel\"]/div/div[2]/span/a")));
-            proceedToCheckout.click();
-
-            WebElement changeBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"select-destination-on-sasp-desktop-panel-id-QL5IM22MZZU6RO2Q4JHYG126KM8TWKZWUA1GUWZKWT8MK6OPXTQ2EIA2OXOZPPOH\"]/div/label/i")));
-            changeBtn.click();
-
-            wait.until(
-                    ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            By.id("delivery-addresses-section-header-id")));
-
-            WebElement alterAddress = wait.until(
-                    ExpectedConditions.elementToBeClickable(
-                            By.xpath("//*[@id=\"select-destination-on-sasp-desktop-panel-id-QL5IM22MZZU6RO2Q4JHYG126KM8TWKZWUA1GUWZKWT8MK6OPXTQ2EIA2OXOZPPOH\"]/div/label/input")));
-            alterAddress.click();
-
-            WebElement cfmAddress = wait.until(
-                    ExpectedConditions.elementToBeClickable(
-                            By.id("checkout-primary-continue-shipaddressselect")));
-            cfmAddress.click();
-            Thread.sleep(2000);
+        	WebElement changeAddressLink = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("/html/body/div[5]/div[1]/div/div/div[2]/div/div[4]/div[2]/div/div[2]/span/a")
+                ));
+                changeAddressLink.click();
+                Thread.sleep(3000);
+                
+                java.util.List<WebElement> allAddressRadios = driver.findElements(By.xpath("//div[contains(@id, 'select-destination')]//input[@type='radio']"));
+                
+                WebElement clickableLabel = driver.findElement(By.xpath("/html/body/div[5]/div[1]/div/div/div[2]/div/div[4]/div[2]/div[2]/form/div/fieldset/div[3]/div[2]/span/div/label/i"));
+                clickableLabel.click();
+                Thread.sleep(2000); 
+                    
+                WebElement useThisAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//input[contains(@id, 'checkout-primary-continue-button')] | //*[@id='checkout-primary-continue-button-id']//input")
+                ));
+                
+                js.executeScript("arguments[0].scrollIntoView({block: 'center'});", useThisAddressBtn);
+                Thread.sleep(1000);
+                    
+                useThisAddressBtn.click();
         } catch (Exception e) {
 
             System.out.println("Address update failed");

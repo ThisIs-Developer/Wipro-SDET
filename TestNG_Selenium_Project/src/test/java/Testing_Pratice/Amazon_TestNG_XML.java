@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ public class Amazon_TestNG_XML {
 
     WebDriver driver;
     WebDriverWait wait;
+    JavascriptExecutor js;
 
     @BeforeTest (alwaysRun = true)
     public void beforeTest() {
@@ -217,26 +219,33 @@ public class Amazon_TestNG_XML {
         goCart.click();
 
         try {
-            WebElement proceedToCheckout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"checkout-deliveryAddressPanel\"]/div/div[2]/span/a")));
-            proceedToCheckout.click();
+        	WebElement changeAddressLink = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//a[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'change')] | //a[@id='addressChangeLinkId']")
+                ));
+                changeAddressLink.click();
+                Thread.sleep(3000);
+                
+                java.util.List<WebElement> allAddressRadios = driver.findElements(By.xpath("//div[contains(@id, 'select-destination')]//input[@type='radio']"));
+                
+                if(allAddressRadios.size() >= 2) {
+                    WebElement secondAddressBtn = allAddressRadios.get(1);
+                    Thread.sleep(1000);
+                    
+                    WebElement clickableLabel = secondAddressBtn.findElement(By.xpath("./ancestor::label"));
+                    clickableLabel.click();
+                    Thread.sleep(2000); 
+                } else {
+                    System.out.println("   - Warning: 2nd address not available");
+                }
 
-            WebElement changeBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"select-destination-on-sasp-desktop-panel-id-QL5IM22MZZU6RO2Q4JHYG126KM8TWKZWUA1GUWZKWT8MK6OPXTQ2EIA2OXOZPPOH\"]/div/label/i")));
-            changeBtn.click();
-
-            wait.until(
-                    ExpectedConditions.visibilityOfAllElementsLocatedBy(
-                            By.id("delivery-addresses-section-header-id")));
-
-            WebElement alterAddress = wait.until(
-                    ExpectedConditions.elementToBeClickable(
-                            By.xpath("//*[@id=\"select-destination-on-sasp-desktop-panel-id-QL5IM22MZZU6RO2Q4JHYG126KM8TWKZWUA1GUWZKWT8MK6OPXTQ2EIA2OXOZPPOH\"]/div/label/input")));
-            alterAddress.click();
-
-            WebElement cfmAddress = wait.until(
-                    ExpectedConditions.elementToBeClickable(
-                            By.id("checkout-primary-continue-shipaddressselect")));
-            cfmAddress.click();
-            Thread.sleep(2000);
+                WebElement useThisAddressBtn = wait.until(ExpectedConditions.elementToBeClickable(
+                    By.xpath("//input[contains(@id, 'checkout-primary-continue-button')] | //*[@id='checkout-primary-continue-button-id']//input")
+                ));
+                
+                js.executeScript("arguments[0].scrollIntoView({block: 'center'});", useThisAddressBtn);
+                Thread.sleep(1000);
+                    
+                useThisAddressBtn.click();
         } catch (Exception e) {
 
             System.out.println("Address update failed");
