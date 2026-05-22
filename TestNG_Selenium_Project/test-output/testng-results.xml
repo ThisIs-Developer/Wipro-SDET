@@ -1,60 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="5" failed="2" skipped="0">
+<testng-results ignored="0" total="3" passed="1" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-22T00:24:46 IST" name="Default suite" finished-at="2026-05-22T00:28:35 IST" duration-ms="229226">
+  <suite started-at="2026-05-22T17:22:18 IST" name="TestSuite" finished-at="2026-05-22T17:22:18 IST" duration-ms="231">
     <groups>
     </groups>
-    <test started-at="2026-05-22T00:24:46 IST" name="Default test" finished-at="2026-05-22T00:28:35 IST" duration-ms="229226">
-      <class name="Testing_Pratice.Amazon_Automation">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:24:46 IST" name="beforeTest" finished-at="2026-05-22T00:25:03 IST" duration-ms="17310" status="PASS">
+    <test started-at="2026-05-22T17:22:18 IST" name="RegressionTest" finished-at="2026-05-22T17:22:18 IST" duration-ms="231">
+      <class name="Listeners_Code.Test_cases">
+        <test-method signature="Method1()[pri:0, instance:Listeners_Code.Test_cases@55141def]" started-at="2026-05-22T17:22:18 IST" name="Method1" finished-at="2026-05-22T17:22:18 IST" duration-ms="22" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeTest -->
-        <test-method signature="registration()[pri:1, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:25:03 IST" name="registration" finished-at="2026-05-22T00:25:59 IST" duration-ms="56106" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- registration -->
-        <test-method signature="login()[pri:2, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:25:59 IST" name="login" finished-at="2026-05-22T00:26:40 IST" duration-ms="40715" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- login -->
-        <test-method signature="search_Engine()[pri:3, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:26:40 IST" name="search_Engine" finished-at="2026-05-22T00:27:09 IST" duration-ms="28901" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- search_Engine -->
-        <test-method signature="add_to_cart()[pri:4, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:27:09 IST" name="add_to_cart" finished-at="2026-05-22T00:27:52 IST" duration-ms="42886" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- add_to_cart -->
-        <test-method signature="viewProduct()[pri:5, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:27:52 IST" name="viewProduct" finished-at="2026-05-22T00:28:35 IST" duration-ms="42996" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchSessionException">
+        </test-method> <!-- Method1 -->
+        <test-method signature="Method2()[pri:0, instance:Listeners_Code.Test_cases@55141def]" started-at="2026-05-22T17:22:18 IST" name="Method2" finished-at="2026-05-22T17:22:18 IST" duration-ms="13" status="FAIL">
+          <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[invalid session id
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0721eadd1fba32f035e909c73a906f90, switchToWindow {handle=CB2735431126806728959CC8AD168B94}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0721eadd1fba32f035e909c73a906f90]]>
+              <![CDATA[null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0721eadd1fba32f035e909c73a906f90, switchToWindow {handle=CB2735431126806728959CC8AD168B94}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0721eadd1fba32f035e909c73a906f90
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:224)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.RemoteWebDriver$RemoteTargetLocator.window(RemoteWebDriver.java:1271)
-at Testing_Pratice.Amazon_Automation.viewProduct(Amazon_Automation.java:200)
+              <![CDATA[java.lang.AssertionError: null
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.fail(Assert.java:116)
+at Listeners_Code.Test_cases.Method2(Test_cases.java:20)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -83,48 +49,18 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- viewProduct -->
-        <test-method signature="remove_from_cart()[pri:6, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:28:35 IST" name="remove_from_cart" finished-at="2026-05-22T00:28:35 IST" duration-ms="15" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- remove_from_cart -->
-        <test-method signature="updateAddress()[pri:7, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:28:35 IST" name="updateAddress" finished-at="2026-05-22T00:28:35 IST" duration-ms="18" status="FAIL">
-          <exception class="org.openqa.selenium.NoSuchSessionException">
+        </test-method> <!-- Method2 -->
+        <test-method signature="Method3()[pri:0, instance:Listeners_Code.Test_cases@55141def]" started-at="2026-05-22T17:22:18 IST" name="Method3" finished-at="2026-05-22T17:22:18 IST" duration-ms="15" status="SKIP">
+          <exception class="org.testng.SkipException">
             <message>
-              <![CDATA[invalid session id
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0721eadd1fba32f035e909c73a906f90, findElement {using=name, value=proceedToRetailCheckout}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0721eadd1fba32f035e909c73a906f90]]>
+              <![CDATA[Skipping the test]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.NoSuchSessionException: invalid session id
-Build info: version: '4.44.0', revision: 'da2039b'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.10'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [0721eadd1fba32f035e909c73a906f90, findElement {using=name, value=proceedToRetailCheckout}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 148.0.7778.178, chrome: {chromedriverVersion: 148.0.7778.178 (d096af1c9e9..., userDataDir: C:\Users\User\AppData\Local...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:56021}, goog:processID: 5004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:56021/devtoo..., se:cdpVersion: 148.0.7778.178, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 0721eadd1fba32f035e909c73a906f90
-at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:169)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:143)
-at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:224)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:217)
-at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:175)
-at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:600)
-at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:173)
-at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:67)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:421)
-at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:415)
-at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:222)
-at org.openqa.selenium.support.ui.ExpectedConditions$7.apply(ExpectedConditions.java:215)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:210)
-at Testing_Pratice.Amazon_Automation.updateAddress(Amazon_Automation.java:218)
+              <![CDATA[org.testng.SkipException: Skipping the test
+at Listeners_Code.Test_cases.Method3(Test_cases.java:28)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -153,15 +89,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.NoSuchSessionException -->
+          </exception> <!-- org.testng.SkipException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- updateAddress -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:Testing_Pratice.Amazon_Automation@6a6cb05c]" started-at="2026-05-22T00:28:35 IST" name="afterTest" finished-at="2026-05-22T00:28:35 IST" duration-ms="97" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterTest -->
-      </class> <!-- Testing_Pratice.Amazon_Automation -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- Method3 -->
+      </class> <!-- Listeners_Code.Test_cases -->
+    </test> <!-- RegressionTest -->
+  </suite> <!-- TestSuite -->
 </testng-results>
