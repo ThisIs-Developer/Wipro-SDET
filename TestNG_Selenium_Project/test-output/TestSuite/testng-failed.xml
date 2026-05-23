@@ -6,13 +6,14 @@
   </listeners>
   <test thread-count="5" name="RegressionTest(failed)">
     <classes>
-      <class name="eBay.eBay_TestCase">
+      <class name="AssignmentDay26.TutorialsNinja_TestCase">
         <methods>
           <include name="afterTest"/>
-          <include name="login"/>
           <include name="beforeTest"/>
+          <include name="searchEngine" invocation-numbers="0 1 2"/>
+          <include name="addProductsToCart" invocation-numbers="0 1 2"/>
         </methods>
-      </class> <!-- eBay.eBay_TestCase -->
+      </class> <!-- AssignmentDay26.TutorialsNinja_TestCase -->
     </classes>
   </test> <!-- RegressionTest(failed) -->
 </suite> <!-- Failed suite [TestSuite] -->

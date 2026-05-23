@@ -1,6 +1,5 @@
 package TrafficDB;
 import java.sql.*;
-import java.util.Scanner;
 public class LoginService {
     public static boolean login(String username, String password) {
         try (Connection con = DBConnection.getConnection()) {

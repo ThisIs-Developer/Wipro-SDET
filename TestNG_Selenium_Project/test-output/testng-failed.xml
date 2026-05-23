@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="Listeners.My_Listeners"/>
+  </listeners>
+  <test thread-count="5" name="RegressionTest(failed)">
     <classes>
       <class name="AssignmentDay26.TutorialsNinja_TestCase">
         <methods>
           <include name="afterTest"/>
           <include name="beforeTest"/>
+          <include name="searchEngine" invocation-numbers="0 1 2"/>
           <include name="addProductsToCart" invocation-numbers="0 1 2"/>
         </methods>
       </class> <!-- AssignmentDay26.TutorialsNinja_TestCase -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- RegressionTest(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->
