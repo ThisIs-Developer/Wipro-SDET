@@ -6,12 +6,13 @@
   </listeners>
   <test thread-count="5" name="RegressionTest(failed)">
     <classes>
-      <class name="Listeners_Code.Test_cases">
+      <class name="eBay.eBay_TestCase">
         <methods>
-          <include name="Method2"/>
-          <include name="Method3"/>
+          <include name="afterTest"/>
+          <include name="login"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- Listeners_Code.Test_cases -->
+      </class> <!-- eBay.eBay_TestCase -->
     </classes>
   </test> <!-- RegressionTest(failed) -->
 </suite> <!-- Failed suite [TestSuite] -->

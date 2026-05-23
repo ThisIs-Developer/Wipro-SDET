@@ -9,7 +9,7 @@ public class Test_cases {
     @Test
     public void Method1() {
 
-        System.out.println("Pass test executed");
+    	System.out.println("Pass test executed");
     }
 
     @Test
