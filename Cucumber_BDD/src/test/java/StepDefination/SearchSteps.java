@@ -1,10 +1,6 @@
 package StepDefination;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.en.And;
@@ -12,7 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class SearchSteps extends BaseClass{
+public class SearchSteps extends BaseClass {
 
     @Given("user is on the Demo Web Shop dashboard")
     public void user_is_on_the_demo_web_shop_dashboard() {
@@ -25,17 +21,18 @@ public class SearchSteps extends BaseClass{
     }
 
     @And("clicks on the search button")
-    public void clicks_on_the_search_button() {
-        driver.findElement(By.xpath("//input[@value='Search']")).click();
+    public void clicks_on_the_search_button() throws InterruptedException {
+    	Thread.sleep(2000);
+    	driver.findElement(By.xpath("//input[@value='Search']")).click();
     }
 
     @Then("search results should be displayed successfully")
     public void search_results_should_be_displayed_successfully() {
         boolean isResultDisplayed = driver.findElement(By.className("search-results")).isDisplayed();
         
-        Assert.assertTrue(isResultDisplayed, "Search results load nahi hue!");
+        Assert.assertTrue(isResultDisplayed, "Search results not loaded!");
         System.out.println("Search functionality working perfectly for the product!");
-        
         driver.quit();
+        
     }
 }

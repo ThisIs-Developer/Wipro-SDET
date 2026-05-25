@@ -1,9 +1,13 @@
-Feature: Login functionality
-  
- Scenario: Verify user can log in with valid credentials
-  Given the login page is open in the default browser
-  When the user enters a valid username in the username field
-  And the user enters a valid password in the password field
-  And the user clicks the login button
-  Then the user should be logged in successfully
-  And the user should be redirected to the home page
+Feature: Verify login functionality on Demo Web Shop
+
+  Scenario Outline: verify user is able to login with valid credentials
+    Given login page should be open in default browser
+    When click on email field and enter valid email "<email>"
+    And then click on password field and enter valid password "<password>"
+    And now click on login button
+    Then user login successfully and redirect to home page
+
+    Examples:
+      | email                    | password  |
+      | test32154345@gmail.com   | test@123  |
+      | test2@gmail.com          | hello@123 |
