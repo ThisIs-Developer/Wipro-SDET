@@ -7,6 +7,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class POM_TutorialsNinja {
@@ -49,6 +50,14 @@ public class POM_TutorialsNinja {
 	// Add to cart
 	By addToCartBtn = By.xpath("(//button[contains(@onclick,'cart.add')])[1]");
 	By goToCartBtn = By.xpath("//button[contains(@class,'dropdown-toggle') and contains(.,'item')]"); 
+	
+	// Remove from cart
+	By openCartBtn = By.xpath("//*[@id=\"cart\"]/ul/li[2]/div/p/a[1]");
+	By remove1 = By.xpath("//*[@id=\"content\"]/form/div/table/tbody/tr[1]/td[4]/div/span/button[2]");
+	By remove2 = By.xpath("//*[@id=\"content\"]/form/div/table/tbody/tr[2]/td[4]/div/span/button[2]");
+	
+	// Checkout
+	By checkoutBtn = By.xpath("//*[@id=\"content\"]/div[3]/div[2]/a");
 
 	public void register(String fname, String lname, String mail,
 			String phone, String pass, String confirmPass) {
@@ -85,60 +94,66 @@ public class POM_TutorialsNinja {
 	}
 	
 	public void search(String items) throws Exception {
-
 		js = (JavascriptExecutor) driver;
-//		driver.findElement(conHomeBtn).click();
-		js.executeScript("window.scrollTo(0,300)");
-		Thread.sleep(1000);
-
 		driver.findElement(searchBar).clear();
 		driver.findElement(searchBar).sendKeys(items);
 		Thread.sleep(1000);
 		driver.findElement(searchBtn).click();
+		Thread.sleep(1000);
+		js.executeScript("window.scrollBy(0,450)");
 		Thread.sleep(1000);
 	}
 	
 	public void addToCart(String items) throws Exception {
-
 		js = (JavascriptExecutor) driver;
-
-		// Home
-		driver.findElement(conHomeBtn).click();
-
-		Thread.sleep(1000);
-
-		// Scroll Top
-		js.executeScript("window.scrollTo(0,0)");
-
-		Thread.sleep(1000);
-
-		// Search Product
 		driver.findElement(searchBar).clear();
-
 		driver.findElement(searchBar).sendKeys(items);
-
 		Thread.sleep(1000);
-
 		driver.findElement(searchBtn).click();
-
 		Thread.sleep(1000);
-
-		// Scroll Down
 		js.executeScript("window.scrollBy(0,450)");
-
 		Thread.sleep(1000);
-
-		// Add To Cart
 		driver.findElement(addToCartBtn).click();
-
 		Thread.sleep(1000);
-
-		// Open Cart ONLY after last DataProvider item
 		if(items.equals("tab")) {
-
 			driver.findElement(goToCartBtn).click();
 
 			Thread.sleep(1000);
 		}
+	}
+	
+	public void removeToCart() throws InterruptedException {
+		driver.findElement(openCartBtn).click();
+		Thread.sleep(1000);
+		driver.findElement(remove1).click();
+		Thread.sleep(1000);
+		driver.findElement(remove2).click();
+		Thread.sleep(1000);
+	}
+	
+	public void checkout() {
+		js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,600)");
+		driver.findElement(checkoutBtn).click();
+		try {
+		    WebElement outOfStockMsg = driver.findElement(
+		        By.xpath("//div[contains(text(),'Products marked with *** are not available in the desired quantity or not in stock!')]")
+		    );
+
+		    if (outOfStockMsg.isDisplayed()) {
+		        System.out.println("Product out of stock");
+		    } else {
+		        System.out.println("Going to checkout");
+		    }
+		} catch (Exception e) {
+		    System.out.println("Going to checkout");
+		}
+	}
+	
+	public void logoutUser() throws InterruptedException {
+		driver.findElement(findRegisterBtn).click();
+		Thread.sleep(1000);
+		driver.findElement(findLogout).click();
+		Thread.sleep(1000);
 	}
 }

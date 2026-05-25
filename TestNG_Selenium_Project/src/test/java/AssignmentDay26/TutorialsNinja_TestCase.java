@@ -35,7 +35,7 @@ public class TutorialsNinja_TestCase {
 	@DataProvider(name = "UserData")
 	public Object[][] data() {
 		return new Object[][] {
-				{ "Test", "Selenium", "testselenium0123456789@gmail.com",
+				{ "Test", "Selenium", "testselenium02@gmail.com",
 				"9876543210", "test@123", "test@123" }
 		};
 	}
@@ -44,7 +44,7 @@ public class TutorialsNinja_TestCase {
 	public Object[][] items() {
 		return new Object[][] {
 				{"phone"},
-				{"mac"},
+				{"Sony VAIO"},
 				{"tab"}
 		};
 	}
@@ -96,10 +96,24 @@ public class TutorialsNinja_TestCase {
 	public void addProductsToCart(String items) throws Exception {
 		pom.addToCart(items);
 	}
+	
+	@Test(priority = 5)
+	public void removeProductsToCart() throws Exception {
+		pom.removeToCart();
+	}
+	
+	@Test(priority = 6)
+	public void checkout() throws Exception {
+		pom.checkout();
+	}
+	
+	@Test(priority = 7)
+	public void logoutUser() throws InterruptedException{
+		pom.logoutUser();
+	}
 
 	@AfterTest
 	public void afterTest() {
-
-		// driver.quit();
+		 driver.quit();
 	}
 }

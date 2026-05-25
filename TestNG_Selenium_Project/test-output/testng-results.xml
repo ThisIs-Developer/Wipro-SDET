@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-05-23T20:19:45 IST" name="TestSuite" finished-at="2026-05-23T20:20:14 IST" duration-ms="29459">
+  <suite started-at="2026-05-24T14:25:34 IST" name="TestSuite" finished-at="2026-05-24T14:26:36 IST" duration-ms="62096">
     <groups>
     </groups>
-    <test started-at="2026-05-23T20:19:45 IST" name="RegressionTest" finished-at="2026-05-23T20:20:14 IST" duration-ms="29459">
+    <test started-at="2026-05-24T14:25:34 IST" name="RegressionTest" finished-at="2026-05-24T14:26:36 IST" duration-ms="62096">
       <class name="AssignmentDay26.TutorialsNinja_TestCase">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:AssignmentDay26.TutorialsNinja_TestCase@7eac9008]" started-at="2026-05-23T20:19:45 IST" name="beforeTest" finished-at="2026-05-23T20:19:53 IST" duration-ms="8509" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:25:34 IST" name="beforeTest" finished-at="2026-05-24T14:25:48 IST" duration-ms="13441" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:AssignmentDay26.TutorialsNinja_TestCase@7eac9008]" started-at="2026-05-23T20:19:54 IST" name="registerUser" data-provider="UserData" finished-at="2026-05-23T20:19:59 IST" duration-ms="4992" status="PASS">
+        <test-method signature="registerUser(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:25:48 IST" name="registerUser" data-provider="UserData" finished-at="2026-05-24T14:25:56 IST" duration-ms="7766" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -25,7 +25,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[testselenium0123456789@gmail.com]]>
+                <![CDATA[testselenium02@gmail.com]]>
               </value>
             </param>
             <param index="3">
@@ -47,11 +47,89 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- registerUser -->
-        <test-method signature="login()[pri:2, instance:AssignmentDay26.TutorialsNinja_TestCase@7eac9008]" started-at="2026-05-23T20:19:59 IST" name="login" finished-at="2026-05-23T20:20:14 IST" duration-ms="15857" status="PASS">
+        <test-method signature="login()[pri:2, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:25:56 IST" name="login" finished-at="2026-05-24T14:25:59 IST" duration-ms="3361" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:AssignmentDay26.TutorialsNinja_TestCase@7eac9008]" started-at="2026-05-23T20:20:14 IST" name="afterTest" finished-at="2026-05-23T20:20:14 IST" duration-ms="1" status="PASS">
+        <test-method signature="searchEngine(java.lang.String)[pri:3, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:25:59 IST" name="searchEngine" data-provider="searchItems" finished-at="2026-05-24T14:26:04 IST" duration-ms="4236" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[phone]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchEngine -->
+        <test-method signature="searchEngine(java.lang.String)[pri:3, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:04 IST" name="searchEngine" data-provider="searchItems" finished-at="2026-05-24T14:26:08 IST" duration-ms="4214" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sony VAIO]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchEngine -->
+        <test-method signature="searchEngine(java.lang.String)[pri:3, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:08 IST" name="searchEngine" data-provider="searchItems" finished-at="2026-05-24T14:26:12 IST" duration-ms="4107" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tab]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchEngine -->
+        <test-method signature="addProductsToCart(java.lang.String)[pri:4, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:12 IST" name="addProductsToCart" data-provider="searchItems" finished-at="2026-05-24T14:26:17 IST" duration-ms="4838" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[phone]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductsToCart -->
+        <test-method signature="addProductsToCart(java.lang.String)[pri:4, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:17 IST" name="addProductsToCart" data-provider="searchItems" finished-at="2026-05-24T14:26:22 IST" duration-ms="4750" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Sony VAIO]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductsToCart -->
+        <test-method signature="addProductsToCart(java.lang.String)[pri:4, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:22 IST" name="addProductsToCart" data-provider="searchItems" finished-at="2026-05-24T14:26:27 IST" duration-ms="5792" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[tab]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addProductsToCart -->
+        <test-method signature="removeProductsToCart()[pri:5, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:27 IST" name="removeProductsToCart" finished-at="2026-05-24T14:26:32 IST" duration-ms="4540" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- removeProductsToCart -->
+        <test-method signature="checkout()[pri:6, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:32 IST" name="checkout" finished-at="2026-05-24T14:26:33 IST" duration-ms="760" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkout -->
+        <test-method signature="logoutUser()[pri:7, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:33 IST" name="logoutUser" finished-at="2026-05-24T14:26:36 IST" duration-ms="3141" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logoutUser -->
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:AssignmentDay26.TutorialsNinja_TestCase@1a677343]" started-at="2026-05-24T14:26:36 IST" name="afterTest" finished-at="2026-05-24T14:26:36 IST" duration-ms="480" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->

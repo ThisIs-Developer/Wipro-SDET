@@ -11,7 +11,6 @@
           <include name="afterTest"/>
           <include name="beforeTest"/>
           <include name="searchEngine" invocation-numbers="0 1 2"/>
-          <include name="addProductsToCart" invocation-numbers="0 1 2"/>
         </methods>
       </class> <!-- AssignmentDay26.TutorialsNinja_TestCase -->
     </classes>
