@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="77.349" tests="11" skipped="0" failures="0" errors="0">
+<testcase classname="Tutorials Ninja Automation" name="Register User" time="27.813">
+<system-out><![CDATA[
+Given user opens TutorialsNinja website.....................................passed
+When user registers with valid details......................................passed
+Then registration should be successful......................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Login User" time="6.082">
+<system-out><![CDATA[
+When user logs in using excel data..........................................passed
+Then login should be successful.............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Search Product - Example #1.1" time="9.331">
+<system-out><![CDATA[
+When user searches for phone................................................passed
+Then search should complete.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Search Product - Example #1.2" time="4.462">
+<system-out><![CDATA[
+When user searches for Sony VAIO............................................passed
+Then search should complete.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Search Product - Example #1.3" time="4.117">
+<system-out><![CDATA[
+When user searches for tab..................................................passed
+Then search should complete.................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Add Product To Cart - Example #1.1" time="4.922">
+<system-out><![CDATA[
+When user adds phone to cart................................................passed
+Then product should be added successfully...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Add Product To Cart - Example #1.2" time="5.032">
+<system-out><![CDATA[
+When user adds Sony VAIO to cart............................................passed
+Then product should be added successfully...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Add Product To Cart - Example #1.3" time="6.416">
+<system-out><![CDATA[
+When user adds tab to cart..................................................passed
+Then product should be added successfully...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Remove Products" time="4.238">
+<system-out><![CDATA[
+When user removes products from cart........................................passed
+Then cart should update.....................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Checkout Product" time="0.857">
+<system-out><![CDATA[
+When user proceeds to checkout..............................................passed
+Then checkout page should open..............................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Tutorials Ninja Automation" name="Logout User" time="3.066">
+<system-out><![CDATA[
+When user logs out..........................................................passed
+Then logout should be successful............................................passed
+]]></system-out>
+</testcase>
+</testsuite>
