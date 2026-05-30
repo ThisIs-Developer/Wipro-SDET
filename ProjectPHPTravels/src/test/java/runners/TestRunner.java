@@ -14,13 +14,15 @@ import io.cucumber.testng.CucumberOptions;
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html",
                 "json:target/cucumber-reports/cucumber.json",
-//                 Extent Reports generate
+//                plugin for Extent Reports generate
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
         },
         monochrome = true,
         tags = "@Regression"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
+
+    //Parallel Execution Setup
     @Override
     @DataProvider(parallel = true)
     public Object[][] scenarios() {

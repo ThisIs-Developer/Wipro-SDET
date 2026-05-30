@@ -9,114 +9,126 @@ import java.util.List;
 
 public class SearchPage {
 
-    private WebDriver driver;
-    // City Dropdown container
-    private By destinationInput = By.cssSelector("input[placeholder='Search By City']");
-    // Dynamic list items matching city name
-    private String dynamicCityResult = "//*[contains(text(),'%s')]";
+    private WebDriver activeDriver;
     
-    // Dates & Travellers
-    private By checkInInput = By.name("checkin_date");
-    private By checkOutInput = By.name("checkout_date");
-    private By travellersDropdown = By.xpath("//a[contains(@class, 'dropdown-toggle') and contains(@href, 'travellers')]");
-    private By searchBtn = By.xpath("//button[@type='submit' and contains(., 'Search Hotels')]");
+    private By locDestCity = By.cssSelector("input[placeholder='Search By City']");
+    private String xpathCityMatch = "//*[contains(text(),'%s')]";
+    private By tabStays = By.xpath("//button[@role='tab' and .//span[text()='Stays']]");
     
-    private By nationalityDropdownClickable = By.xpath("//div[@x-data='nationalityDropdown()']//div[contains(@class, 'cursor-pointer')]");
-    private By nationalitySearchBox = By.xpath("//div[contains(@class, 'input-dropdown-content')]//input[@type='text']");
-    private String dynamicNationalityResult = "//div[contains(@class, 'input-dropdown-content')]//li[contains(text(), '%s')]";
-    private By understandButton = By.xpath("//button[contains(text(), 'I Understand')]");
+    private By inputArrival = By.name("checkin_date");
+    private By inputDeparture = By.name("checkout_date");
+    private By dropTravellers = By.xpath("//*[contains(text(), 'Traveler') or contains(@class, 'traveller')]");
+    private By btnTriggerSearch = By.xpath("//button[@type='submit' and contains(., 'Search Hotels')]");
+    
+    private By btnUnderstand = By.xpath("//button[contains(text(), 'I Understand')]");
     
     public SearchPage(WebDriver driver) {
-        this.driver = driver;
+        this.activeDriver = driver;
     }
     
     public void closeDemoPopupIfPresent() {
         try {
-            WebElement btn = WaitUtils.waitForClickable(driver, understandButton, 3);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
-            System.out.println("Demo popup closed successfully on Home Page!");
+            WebElement popupNode = WaitUtils.waitForClickable(activeDriver, btnUnderstand, 3);
+            ((JavascriptExecutor) activeDriver).executeScript("arguments[0].click();", popupNode);
+            System.out.println("Bypassed demo overlay.");
             Thread.sleep(1000); 
-        } catch (Exception e) {
-            System.out.println("No demo popup appeared on Home Page.");
+        } catch (Exception ex) {
+            System.out.println("No demo overlay present.");
         }
     }
 
-    public void searchCity(String cityName) {
+    public void clickStaysTab() {
         try {
-            WebElement destInput = WaitUtils.waitForVisible(driver, destinationInput, 10);
-            destInput.clear();
-            destInput.sendKeys(cityName);
-            
-            System.out.println("Typed city: " + cityName);
+            WebElement tabNode = WaitUtils.waitForPresence(activeDriver, tabStays, 10);
+            ((JavascriptExecutor) activeDriver).executeScript("arguments[0].click();", tabNode);
+            System.out.println("Navigated to Stays module.");
             Thread.sleep(2000); 
+        } catch (Exception ex) {
+            System.out.println("Module switch failed: " + ex.getMessage());
+            org.testng.Assert.fail("Failed to activate Stays tab: " + ex.getMessage());
+        }
+    }
+    
+    public void searchCity(String targetCity) {
+        try {
+            List<WebElement> cityFields = activeDriver.findElements(locDestCity);
             
-            By exactCity = By.xpath(String.format(dynamicCityResult, cityName));
-            WebElement cityOption = WaitUtils.waitForClickable(driver, exactCity, 10);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", cityOption);
-            System.out.println("City selected from auto-suggest: " + cityName);
+            WebElement targetInput = cityFields.stream()
+                                               .filter(WebElement::isDisplayed)
+                                               .findFirst()
+                                               .orElse(null);
             
-        } catch (Exception e) {
-            System.out.println("City search failed: " + e.getMessage());
+            if(targetInput != null) {
+                targetInput.clear();
+                targetInput.sendKeys(targetCity);
+                System.out.println("Entered destination: " + targetCity);
+                Thread.sleep(2500);
+
+                By specificCityNode = By.xpath(String.format(xpathCityMatch, targetCity));
+                WebElement autoSuggestOption = WaitUtils.waitForClickable(activeDriver, specificCityNode, 10);
+                ((JavascriptExecutor) activeDriver).executeScript("arguments[0].click();", autoSuggestOption);
+                System.out.println("Confirmed city suggestion.");
+            } else {
+                System.out.println("Error: Destination field is hidden or missing.");
+                org.testng.Assert.fail("No interactable destination input located.");
+            }
+        } catch (Exception ex) {
+            System.out.println("Search input failed: " + ex.getMessage());
+            org.testng.Assert.fail("Exception during city input: " + ex.getMessage());
         }
     }
 
     public void selectDates() {
-        System.out.println("⚡ Using Boss-Level JS Injection for Dates...");
+        System.out.println("Executing DOM injection for booking dates...");
         try {
-            WebElement checkIn = WaitUtils.waitForPresence(driver, checkInInput, 5);
-            WebElement checkOut = WaitUtils.waitForPresence(driver, checkOutInput, 5);
+            WebElement dateIn = WaitUtils.waitForPresence(activeDriver, inputArrival, 5);
+            WebElement dateOut = WaitUtils.waitForPresence(activeDriver, inputDeparture, 5);
             
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            String checkinDate = "15-06-2026"; 
-            String checkoutDate = "20-06-2026";
-            js.executeScript("arguments[0].value='" + checkinDate + "';", checkIn);
-            js.executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", checkIn);
-            js.executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", checkIn);
-            js.executeScript("arguments[0].value='" + checkoutDate + "';", checkOut);
-            js.executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", checkOut);
-            js.executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", checkOut);
+            JavascriptExecutor jsEngine = (JavascriptExecutor) activeDriver;
+            String arrivalStr = "15-06-2026"; 
+            String departureStr = "20-06-2026";
             
-            System.out.println("Dates injected successfully: " + checkinDate + " to " + checkoutDate);
+            jsEngine.executeScript("arguments[0].value=arguments[1];", dateIn, arrivalStr);
+            jsEngine.executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", dateIn);
             
-        } catch(Exception e) {
-             System.out.println("Date pickers handling failed: " + e.getMessage());
+            jsEngine.executeScript("arguments[0].value=arguments[1];", dateOut, departureStr);
+            jsEngine.executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true })); arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", dateOut);
+            
+            System.out.println(String.format("Timestamps registered: %s -> %s", arrivalStr, departureStr));
+            
+        } catch(Exception ex) {
+             System.out.println("Date injection malfunction: " + ex.getMessage());
         }
     }
 
     public void selectTravellers() {
         try {
-            WebElement dropdown = WaitUtils.waitForPresence(driver, travellersDropdown, 5);
-            
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", dropdown);
-            
-            System.out.println("Travellers dropdown clicked successfully using JS!");
-            
-        } catch (Exception e) {
-            System.out.println("Travellers dropdown click failed: " + e.getMessage());
+            WebElement paxDropdown = WaitUtils.waitForPresence(activeDriver, dropTravellers, 5);
+            ((JavascriptExecutor) activeDriver).executeScript("arguments[0].click();", paxDropdown);
+            System.out.println("Pax dropdown engaged.");
+        } catch (Exception ex) {
+            System.out.println("Pax interaction failed: " + ex.getMessage());
         }
     }
-    public void selectNationality(String countryName) {
+
+    public void selectNationality(String country) {
         try {
-            JavascriptExecutor js = (JavascriptExecutor) driver;
+            JavascriptExecutor jsEngine = (JavascriptExecutor) activeDriver;
+            WebElement countryNode = WaitUtils.waitForPresence(activeDriver, By.name("nationality"), 5);
+            String isoCode = country.substring(0, 2).toUpperCase(); 
 
-            WebElement hiddenInput = WaitUtils.waitForPresence(driver, By.name("nationality"), 5);
-            String countryCode = countryName.substring(0, 2).toUpperCase(); 
-
-            js.executeScript("arguments[0].value='" + countryCode + "';", hiddenInput);
+            jsEngine.executeScript("arguments[0].value=arguments[1];", countryNode, isoCode);
+            jsEngine.executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", countryNode);
+            jsEngine.executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", countryNode);
             
-            js.executeScript("arguments[0].dispatchEvent(new Event('input', { bubbles: true }));", hiddenInput);
-            js.executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", hiddenInput);
-            
-            System.out.println("Nationality perfectly set to: " + countryCode);
-            
-        } catch (Exception e) {
-            System.out.println("JS Injection failed: " + e.getMessage());
+            System.out.println("Nationality mapped to: " + isoCode);
+        } catch (Exception ex) {
+            System.out.println("Nationality mapping failed: " + ex.getMessage());
         }
     }
 
     public void clickSearch() {
-        WebElement btn = WaitUtils.waitForClickable(driver, searchBtn, 5);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+        WebElement submitNode = WaitUtils.waitForClickable(activeDriver, btnTriggerSearch, 5);
+        ((JavascriptExecutor) activeDriver).executeScript("arguments[0].click();", submitNode);
     }
 }

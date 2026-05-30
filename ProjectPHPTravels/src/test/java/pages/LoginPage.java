@@ -4,74 +4,76 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 import utilities.WaitUtils;
 
 public class LoginPage {
     
-    private WebDriver driver;
+    private WebDriver browser;
 
-    private By emailField = By.name("email");
-    private By passwordField = By.name("password");
-    private By loginButton = By.cssSelector("button[type='submit']");
-    private By dashboardHeader = By.xpath("//h1[contains(text(), 'Dashboard')]");
-    private By errorMessage = By.xpath("//div[contains(@class, 'alert-danger')]");
-    private By understandButton = By.xpath("//button[contains(text(), 'I Understand')]");
+    private By locEmail = By.name("email");
+    private By locPass = By.name("password");
+    private By btnSubmit = By.cssSelector("button[type='submit']");
+    private By headerDash = By.xpath("//h1[contains(text(), 'Dashboard')]");
+    private By alertError = By.xpath("//div[contains(@class, 'alert-danger')]");
+    private By btnDismissPopup = By.xpath("//button[contains(text(), 'I Understand')]");
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+        this.browser = driver;
     }
 
-    public void enterUsername(String username) {
-        WebElement emailEle = WaitUtils.waitForVisible(driver, emailField, 20);
-        emailEle.clear(); 
+    public void enterUsername(String userEmail) {
+        WebElement emailInput = WaitUtils.waitForVisible(browser, locEmail, 20);
+        emailInput.clear(); 
         
-        if(username != null) {
-            emailEle.sendKeys(username);
+        if(userEmail != null && !userEmail.isEmpty()) {
+            emailInput.sendKeys(userEmail);
         }
     }
 
-    public void enterPassword(String password) {
-        WebElement passEle = WaitUtils.waitForVisible(driver, passwordField, 10);
-        passEle.clear();
+    public void enterPassword(String userPass) {
+        WebElement passInput = WaitUtils.waitForVisible(browser, locPass, 10);
+        passInput.clear();
         
-        if(password != null) {
-            passEle.sendKeys(password);
+        if(userPass != null && !userPass.isEmpty()) {
+            passInput.sendKeys(userPass);
         }
     }
 
     public void clickLogin() {
-        org.openqa.selenium.WebElement btn = WaitUtils.waitForClickable(driver, loginButton, 10);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", btn);
+        WebElement loginNode = WaitUtils.waitForClickable(browser, btnSubmit, 10);
+        ((JavascriptExecutor) browser).executeScript("arguments[0].click();", loginNode);
     }
 
     public boolean isDashboardDisplayed() {
         try {
-            org.openqa.selenium.support.ui.WebDriverWait wait = new org.openqa.selenium.support.ui.WebDriverWait(driver, java.time.Duration.ofSeconds(10));
-            return wait.until(org.openqa.selenium.support.ui.ExpectedConditions.urlContains("dashboard"));
-        } catch (Exception e) {
-            System.out.println("Dashboard URL validation failed. Current URL: " + driver.getCurrentUrl());
+            WebDriverWait dynamicWait = new WebDriverWait(browser, Duration.ofSeconds(10));
+            return dynamicWait.until(ExpectedConditions.urlContains("dashboard"));
+        } catch (Exception ex) {
+            System.out.println("Validation error: Dashboard not found. URL is: " + browser.getCurrentUrl());
             return false;
         }
     }
     
     public boolean isErrorMessageDisplayed() {
         try {
-            return WaitUtils.waitForVisible(driver, errorMessage, 5).isDisplayed();
-        } catch (Exception e) {
+            return WaitUtils.waitForVisible(browser, alertError, 5).isDisplayed();
+        } catch (Exception ex) {
             return false;
         }
     }
+
     public void closeDemoPopupIfPresent() {
         try {
-            WebElement btn = WaitUtils.waitForClickable(driver, understandButton, 4);
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].click();", btn);
-            System.out.println("Demo popup closed successfully!");
+            WebElement dismissNode = WaitUtils.waitForClickable(browser, btnDismissPopup, 4);
+            ((JavascriptExecutor) browser).executeScript("arguments[0].click();", dismissNode);
+            System.out.println("Welcome popup dismissed.");
             Thread.sleep(1000);
-        } catch (Exception e) {
-            System.out.println("No demo popup appeared.");
+        } catch (Exception ex) {
+            System.out.println("No welcome popup detected on screen.");
         }
     }
 }

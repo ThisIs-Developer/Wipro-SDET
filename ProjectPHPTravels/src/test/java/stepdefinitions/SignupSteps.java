@@ -1,7 +1,7 @@
 package stepdefinitions;
 
 import org.testng.Assert;
-import base.DriverFactory;
+import base.BrowserSetup;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,47 +10,46 @@ import pages.SignupPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
-import java.util.Random;
 
 public class SignupSteps {
 
-    private SignupPage regPage = new SignupPage(DriverFactory.getDriver());
+    private SignupPage registrationView = new SignupPage(BrowserSetup.getDriver());
 
     @Given("user is on the registration page")
-    public void user_is_on_the_registration_page() {
-        String baseUrl = utilities.ConfigReader.init_prop().getProperty("base_url");
-        DriverFactory.getDriver().get(baseUrl + "/signup");
-        regPage.closeDemoPopupIfPresent();
-        System.out.println("Navigated to Registration Page successfully.");
+    public void accessRegistrationPortal() {
+        String domainUrl = utilities.ConfigReader.init_prop().getProperty("base_url");
+        BrowserSetup.getDriver().get(domainUrl + "/signup");
+        registrationView.closeDemoPopupIfPresent();
+        System.out.println("Signup portal initialized.");
     }
 
     @When("user enters personal details {string} {string}")
-    public void user_enters_personal_details(String fname, String lname) {
-        regPage.enterPersonalDetails(fname, lname);
+    public void fillNamingFields(String givenName, String surname) {
+        registrationView.enterPersonalDetails(givenName, surname);
     }
 
     @And("enters a randomly generated email and password {string}")
-    public void enters_a_randomly_generated_email_and_password(String password) {
-        Random random = new Random();
-        int randomInt = random.nextInt(100000);
-        String randomEmail = "baivab.test." + randomInt + "@gmail.com";
+    public void generateDynamicCredentials(String accountPassword) {
+        // Different random logic generation
+        long timestampSalt = System.currentTimeMillis() % 100000;
+        String dynamicEmail = "tester.bot_" + timestampSalt + "@automation.com";
         
-        System.out.println("Generated Email: " + randomEmail);
-        regPage.enterAccountDetails(randomEmail, password);
+        System.out.println("Created temp email: " + dynamicEmail);
+        registrationView.enterAccountDetails(dynamicEmail, accountPassword);
     }
 
     @And("clicks on the signup button")
-    public void clicks_on_the_signup_button() {
-        regPage.waitForManualCaptchaSolve();; 
-        regPage.clickSignup(); 
+    public void finalizeRegistrationSubmission() {
+        registrationView.waitForManualCaptchaSolve();
+        registrationView.clickSignup(); 
     }
 
     @Then("validate successful registration")
-    public void validate_successful_registration() {
+    public void verifyAccountCreation() {
         try {
-            WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(15));
+            WebDriverWait waiter = new WebDriverWait(BrowserSetup.getDriver(), Duration.ofSeconds(15));
             
-            boolean isSuccess = wait.until(
+            boolean redirectSuccessful = waiter.until(
                 ExpectedConditions.or(
                     ExpectedConditions.urlContains("signup_success"),
                     ExpectedConditions.urlContains("dashboard"),
@@ -58,11 +57,11 @@ public class SignupSteps {
                 )
             );
             
-            Assert.assertTrue(isSuccess, "Registration failed, URL did not change as expected.");
-            System.out.println("Registration Successful! Redirected perfectly.");
+            Assert.assertTrue(redirectSuccessful, "URL routing failed post-registration.");
+            System.out.println("Account created! Routing logic passed.");
             
-        } catch (Exception e) {
-            Assert.fail("Registration validation failed due to timeout.");
+        } catch (Exception ex) {
+            Assert.fail("Validation logic threw a timeout exception during signup.");
         }
     }
 }

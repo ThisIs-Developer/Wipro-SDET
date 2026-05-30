@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
-import base.DriverFactory;
+import base.BrowserSetup;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,56 +13,52 @@ import pages.LoginPage;
 import utilities.ExcelReader;
 
 public class LoginSteps {
-    private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
-    private boolean isLoginAttemptedWithValidData;
     
+    private LoginPage loginScreen = new LoginPage(BrowserSetup.getDriver());
+    private boolean loginShouldPass;
 
     @Given("user launches browser")
-    public void user_launches_browser() {
-        String baseUrl = utilities.ConfigReader.init_prop().getProperty("base_url");
-        DriverFactory.getDriver().get(baseUrl + "/login");
-        loginPage.closeDemoPopupIfPresent();
-        System.out.println("Navigated to Login Page successfully.");
+    public void initializeBrowserSession() {
+        String targetUrl = utilities.ConfigReader.init_prop().getProperty("base_url");
+        BrowserSetup.getDriver().get(targetUrl + "/login");
+        loginScreen.closeDemoPopupIfPresent();
+        System.out.println("Authentication portal is ready.");
     }
 
     @When("user enters login credentials from sheet {string} and rownumber {int}")
-    public void user_enters_login_credentials_from_sheet_and_rownumber(String sheetName, Integer rowNumber) {
+    public void extractAndInputCredentials(String sheetName, Integer rowIndex) {
         
-        ExcelReader reader = new ExcelReader();
-        List<Map<String, String>> testData = reader.getData("src/test/resources/testdata/LoginData.xlsx", sheetName);
+        ExcelReader sheetReader = new ExcelReader();
+        List<Map<String, String>> dataset = sheetReader.getData("src/test/resources/testdata/LoginData.xlsx", sheetName);
         
-        String userName = testData.get(rowNumber).get("username");
-        String password = testData.get(rowNumber).get("password");
+        String inputUser = dataset.get(rowIndex).get("username");
+        String inputPass = dataset.get(rowIndex).get("password");
         
-        System.out.println("Reading from Excel -> Username: " + userName + " | Password: " + password);
+        System.out.println(String.format("Fetched from Excel -> ID: %s | Secret: %s", inputUser, inputPass));
         
-        if ("user@phptravels.com".equals(userName) && "demouser".equals(password)) {
-            isLoginAttemptedWithValidData = true;
-        } else {
-            isLoginAttemptedWithValidData = false;
-        }
+        // Logical check for valid demo credentials
+        loginShouldPass = inputUser.equalsIgnoreCase("user@phptravels.com") && inputPass.equals("demouser");
         
-        loginPage.enterUsername(userName);
-        loginPage.enterPassword(password);
+        loginScreen.enterUsername(inputUser);
+        loginScreen.enterPassword(inputPass);
     }
 
-
     @And("clicks on login button")
-    public void clicks_on_login_button() {
-        loginPage.clickLogin();
+    public void triggerLoginAction() {
+        loginScreen.clickLogin();
     }
 
     @Then("validate login result")
-    public void validate_login_result() {
-        if (isLoginAttemptedWithValidData) {
-            Assert.assertTrue(loginPage.isDashboardDisplayed(), "Dashboard not found after valid login!");
-            System.out.println("Valid Login Successful!");
+    public void verifyAuthenticationState() {
+        if (loginShouldPass) {
+            Assert.assertTrue(loginScreen.isDashboardDisplayed(), "Error: Dashboard did not load for valid user.");
+            System.out.println("Access granted: Valid credentials accepted.");
         } else {
-            boolean isErrorVisible = loginPage.isErrorMessageDisplayed();
-            boolean isDashboardHidden = !loginPage.isDashboardDisplayed();
+            boolean hasErrorMsg = loginScreen.isErrorMessageDisplayed();
+            boolean isStillOnLogin = !loginScreen.isDashboardDisplayed();
             
-            Assert.assertTrue(isErrorVisible || isDashboardHidden, "Invalid login validation failed!");
-            System.out.println("Invalid/Blank Login Rejected Successfully!");
+            Assert.assertTrue(hasErrorMsg || isStillOnLogin, "Security Flaw: Invalid login was allowed through.");
+            System.out.println("Access denied: Invalid login caught successfully.");
         }
     }
 }

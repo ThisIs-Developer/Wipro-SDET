@@ -10,37 +10,48 @@ import org.apache.poi.ss.usermodel.*;
 
 public class ExcelReader {
 
-    public List<Map<String, String>> getData(String excelFilePath, String sheetName) {
-        List<Map<String, String>> data = new ArrayList<>();
+    public List<Map<String, String>> getData(String pathToFile, String targetSheet) {
+        List<Map<String, String>> extractedRecords = new ArrayList<>();
         
-        try (FileInputStream fis = new FileInputStream(new File(excelFilePath));
-             Workbook workbook = WorkbookFactory.create(fis)) {
+        try (FileInputStream fileStream = new FileInputStream(new File(pathToFile));
+             Workbook excelDoc = WorkbookFactory.create(fileStream)) {
             
-            Sheet sheet = workbook.getSheet(sheetName);
-            Row headerRow = sheet.getRow(0);
+            Sheet sheetObj = excelDoc.getSheet(targetSheet);
+            Row titleRow = sheetObj.getRow(0);
             
-            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-                Row currentRow = sheet.getRow(i);
-                Map<String, String> rowMap = new LinkedHashMap<>();
+            int totalRows = sheetObj.getLastRowNum();
+            int totalCols = titleRow.getLastCellNum();
+            
+            for (int rowIndex = 1; rowIndex <= totalRows; rowIndex++) {
+                Row activeRow = sheetObj.getRow(rowIndex);
+                Map<String, String> rowDataMap = new LinkedHashMap<>();
                 
-                for (int j = 0; j < headerRow.getLastCellNum(); j++) {
-                    String key = headerRow.getCell(j).getStringCellValue();
-
-                    Cell cell = currentRow.getCell(j, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
-                    String value = "";
-                    if(cell.getCellType() == CellType.STRING) {
-                        value = cell.getStringCellValue();
-                    } else if (cell.getCellType() == CellType.NUMERIC) {
-                        value = String.valueOf((int)cell.getNumericCellValue());
+                for (int colIndex = 0; colIndex < totalCols; colIndex++) {
+                    String columnHeader = titleRow.getCell(colIndex).getStringCellValue();
+                    Cell currentCell = activeRow.getCell(colIndex, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+                    
+                    String cellContent = "";
+                    
+                    switch (currentCell.getCellType()) {
+                        case STRING:
+                            cellContent = currentCell.getStringCellValue();
+                            break;
+                        case NUMERIC:
+                            cellContent = String.valueOf((int) currentCell.getNumericCellValue());
+                            break;
+                        default:
+                            cellContent = "";
+                            break;
                     }
                     
-                    rowMap.put(key, value);
+                    rowDataMap.put(columnHeader, cellContent);
                 }
-                data.add(rowMap);
+                extractedRecords.add(rowDataMap);
             }
-        } catch (Exception e) {
-            System.out.println("Excel Reading Failed: " + e.getMessage());
+        } catch (Exception ex) {
+            System.err.println("Failed to parse Excel document: " + ex.getMessage());
         }
-        return data;
+        
+        return extractedRecords;
     }
 }

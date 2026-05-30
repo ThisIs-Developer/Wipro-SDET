@@ -1,6 +1,6 @@
 package stepdefinitions;
 
-import base.DriverFactory;
+import base.BrowserSetup;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.TablePage;
@@ -11,27 +11,27 @@ import java.util.Map;
 
 public class TableSteps {
 
-    private TablePage tablePage = new TablePage(DriverFactory.getDriver());
-    private LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
+    private TablePage gridAnalyzer = new TablePage(BrowserSetup.getDriver());
+    private LoginPage loginApp = new LoginPage(BrowserSetup.getDriver());
     
     @When("user enters valid login credentials")
-    public void user_enters_valid_login_credentials() {
-        System.out.println("Entering hardcoded valid credentials for Web Table test...");
+    public void bypassLoginWithStaticData() {
+        System.out.println("Pushing hardcoded admin credentials...");
         
-        String validUser = "user@phptravels.com";
-        String validPass = "demouser";
+        String staticUser = "user@phptravels.com";
+        String staticPass = "demouser";
         
-		loginPage.enterUsername(validUser);
-        loginPage.enterPassword(validPass);
+        loginApp.enterUsername(staticUser);
+        loginApp.enterPassword(staticPass);
     }
 
     @Then("user validates booking table data for duplicates and prices")
-    public void user_validates_booking_table_data_for_duplicates_and_prices() {
+    public void analyzeGridMetrics() {
+        System.out.println("Starting DOM scraping for table data...");
+        List<Map<String, String>> scrapedData = gridAnalyzer.getTableData();
+        System.out.println("Total valid rows scraped: " + scrapedData.size());
         
-        System.out.println("Starting Web Table Data Extraction...");
-        List<Map<String, String>> tableData = tablePage.getTableData();
-        System.out.println("Total Rows Extracted: " + tableData.size());
-        tablePage.findDuplicateBookings(tableData);
-        tablePage.printHighestAndLowestPrice(tableData);
+        gridAnalyzer.findDuplicateBookings(scrapedData);
+        gridAnalyzer.printHighestAndLowestPrice(scrapedData);
     }
 }

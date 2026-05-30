@@ -8,150 +8,146 @@ import utilities.WaitUtils;
 
 public class BookingPage {
 
-    private WebDriver driver;
+    private WebDriver webDriver;
 
-    private By moreDetailsBtn = By.xpath("(//a[contains(., 'More Details') or contains(@href, 'stay/')])[1]");
+    private By locMoreInfo = By.xpath("(//a[contains(., 'More Details') or contains(@href, 'stay/')])[1]");
+    private By locBookBtn = By.xpath("(//button[contains(., 'Book Now') or contains(., 'Book')])[1]");
+    private By locPickRoom = By.xpath("(//button[contains(., 'Select')])[1]");
+    private By locProceedBtn = By.xpath("//button[contains(., 'Continue Booking')]");
     
-    private By bookNowBtn = By.xpath("(//button[contains(., 'Book Now') or contains(., 'Book')])[1]");
-    private By selectRoomBtn = By.xpath("(//button[contains(., 'Select')])[1]");
-    private By continueBookingBtn = By.xpath("//button[contains(., 'Continue Booking')]");
+    private By inputFName = By.name("firstname");
+    private By inputLName = By.name("lastname");
+    private By inputMail = By.name("email");
+    private By inputMobile = By.name("phone");
+    private By chkAgreeTerms = By.id("terms_accepted"); 
+    private By locSubmitBooking = By.xpath("//button[contains(., 'Confirm Booking')]");
     
-    private By firstNameInput = By.name("firstname");
-    private By lastNameInput = By.name("lastname");
-    private By emailInput = By.name("email");
-    private By phoneInput = By.name("phone");
-    private By termsCheckbox = By.id("terms_accepted"); 
-    private By confirmBookingBtn = By.xpath("//button[contains(., 'Confirm Booking')]");
+    private By msgSuccess = By.id("successMessage");
     
-    private By confirmationMessage = By.xpath("//*[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'success') or contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'confirm')]");
-    
-    private By accountMenu = By.xpath("//a[contains(@class, 'dropdown-toggle') and contains(., 'Account')]");
-    private By logoutBtn = By.xpath("//a[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'logout')]");
+    private By navAccount = By.xpath("//a[contains(@class, 'dropdown-toggle') and contains(., 'Account')]");
+    private By navLogout = By.xpath("//a[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'logout')]");
 
     public BookingPage(WebDriver driver) {
-        this.driver = driver;
+        this.webDriver = driver;
     }
 
     public void selectFirstHotel() {
-        System.out.println("Waiting for Hotel Search Results to render...");
+        System.out.println("Awaiting hotel search results to display...");
         try {
             Thread.sleep(5000); 
-            WebElement btn = WaitUtils.waitForClickable(driver, moreDetailsBtn, 15);
+            WebElement moreInfoElement = WaitUtils.waitForClickable(webDriver, locMoreInfo, 15);
+            JavascriptExecutor jsExec = (JavascriptExecutor) webDriver;
             
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", btn);
+            jsExec.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", moreInfoElement);
             Thread.sleep(1000); 
-            System.out.println("Clicking 'More Details' for the first hotel...");
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+            System.out.println("Accessing details for the top hotel result...");
+            jsExec.executeScript("arguments[0].click();", moreInfoElement);
             
             Thread.sleep(5000); 
-            String pageSource = driver.getPageSource();
-            String pageTitle = driver.getTitle();
+            boolean isServerChoked = webDriver.getTitle().contains("504") || webDriver.getPageSource().contains("Gateway time-out");
             
-            if (pageTitle.contains("504") || pageSource.contains("Gateway time-out")) {
-                System.out.println("ALERT: Server choked! 504 Gateway Timeout detected.");
-                System.out.println("Initiating Smart Auto-Refresh Bypass...");
-                
-                driver.navigate().refresh();
+            if (isServerChoked) {
+                System.out.println("WARNING: 504 Gateway Timeout intercepted. Triggering fallback refresh...");
+                webDriver.navigate().refresh();
                 Thread.sleep(5000); 
                 
-                if (driver.getTitle().contains("504") || driver.getPageSource().contains("Gateway time-out")) {
-                    System.out.println("Bypass Failed. PHPTravels Demo Server is completely down.");
-                    org.testng.Assert.fail("ENVIRONMENT ISSUE: 504 Gateway Timeout. Server is not responding.");
+                if (webDriver.getTitle().contains("504") || webDriver.getPageSource().contains("Gateway time-out")) {
+                    System.out.println("Fallback failed. The target server is entirely unresponsive.");
+                    org.testng.Assert.fail("CRITICAL: Environment is down (504 Gateway Timeout).");
                 } else {
-                    System.out.println("Bypass Successful! Room Selection page loaded after refresh.");
+                    System.out.println("Fallback successful! Proceeding to room selection.");
                 }
             }
-        } catch (Exception e) {
-            System.out.println("Exception during hotel selection: " + e.getMessage());
-            org.testng.Assert.fail("Failed to find or click 'More Details' button.");
+        } catch (Exception ex) {
+            System.out.println("Error encountered while picking hotel: " + ex.getMessage());
+            org.testng.Assert.fail("Unable to locate or interact with the 'More Details' element.");
         }
     }
 
     public void clickBookNow() {
-        System.out.println("Starting Room Selection Process...");
+        System.out.println("Initiating room allocation process...");
         try {
-            ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 600);");
-            Thread.sleep(3000);
+            JavascriptExecutor jsExec = (JavascriptExecutor) webDriver;
+            jsExec.executeScript("window.scrollBy(0, 600);");
+            Thread.sleep(3000); 
 
-            System.out.println("Clicking 'Select' for the first room option...");
-            WebElement roomBtn = WaitUtils.waitForClickable(driver, selectRoomBtn, 15);
+            System.out.println("Picking the primary room configuration...");
+            WebElement roomElement = WaitUtils.waitForClickable(webDriver, locPickRoom, 15);
             
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", roomBtn);
+            jsExec.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", roomElement);
             Thread.sleep(1000); 
+            jsExec.executeScript("arguments[0].click();", roomElement);
             
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", roomBtn);
-            
-            System.out.println("Room Selected! Waiting for Continue Booking button...");
-            Thread.sleep(2000);
+            System.out.println("Room locked in. Awaiting confirmation step...");
+            Thread.sleep(2000); 
 
-            System.out.println("Clicking 'Continue Booking' button...");
-            WebElement continueBtn = WaitUtils.waitForClickable(driver, continueBookingBtn, 10);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", continueBtn);
+            WebElement proceedElement = WaitUtils.waitForClickable(webDriver, locProceedBtn, 10);
+            jsExec.executeScript("arguments[0].click();", proceedElement);
             
-        } catch (Exception e) {
-            System.out.println("Room Selection or Continue Booking failed: " + e.getMessage());
-            org.testng.Assert.fail("Failed during room selection flow.");
+        } catch (Exception ex) {
+            System.out.println("Room allocation error: " + ex.getMessage());
+            org.testng.Assert.fail("Flow broken during room selection phase.");
         }
     }
 
     public void enterTravellerDetailsAndConfirm() {
-        System.out.println("Entering Traveller Details...");
+        System.out.println("Populating traveler form...");
         try {
             Thread.sleep(2000); 
-
-            System.out.println("Ticking the Terms & Conditions checkbox...");
-            WebElement checkbox = driver.findElement(termsCheckbox);
+            JavascriptExecutor jsExec = (JavascriptExecutor) webDriver;
+            WebElement termsBox = webDriver.findElement(chkAgreeTerms);
             
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", checkbox);
+            jsExec.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", termsBox);
             Thread.sleep(1000);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].checked = true;", checkbox);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", checkbox);
-            System.out.println("Checkbox perfectly ticked!");
+            jsExec.executeScript("arguments[0].checked = true;", termsBox);
+            jsExec.executeScript("arguments[0].dispatchEvent(new Event('change', { bubbles: true }));", termsBox);
+            System.out.println("T&C accepted successfully.");
             
             Thread.sleep(1000);
 
-            System.out.println("Confirming Booking...");
-            WebElement confirmBtn = WaitUtils.waitForClickable(driver, confirmBookingBtn, 10);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", confirmBtn);
+            WebElement submitElement = WaitUtils.waitForClickable(webDriver, locSubmitBooking, 10);
+            jsExec.executeScript("arguments[0].click();", submitElement);
             
             Thread.sleep(5000); 
-            if (driver.getTitle().contains("504") || driver.getPageSource().contains("Gateway time-out")) {
-                System.out.println("ALERT: Server choked during booking submission!");
-                driver.navigate().refresh(); 
+            boolean crashedOnSubmit = webDriver.getTitle().contains("504") || webDriver.getPageSource().contains("Gateway time-out");
+            if (crashedOnSubmit) {
+                System.out.println("WARNING: Server stalled on submission. Refreshing...");
+                webDriver.navigate().refresh(); 
                 Thread.sleep(5000); 
             }
             
-        } catch (Exception e) {
-            System.out.println("Form submission failed: " + e.getMessage());
-            org.testng.Assert.fail("Failed to submit traveller details and confirm booking.");
+        } catch (Exception ex) {
+            System.out.println("Booking submission error: " + ex.getMessage());
+            org.testng.Assert.fail("Failed to process traveler data and finalize booking.");
         }
     }
 
     public boolean isBookingConfirmed() {
         try {
-            WebElement msg = WaitUtils.waitForVisible(driver, confirmationMessage, 20);
-            System.out.println("Booking Validation Message: " + msg.getText());
+            WebElement successAlert = WaitUtils.waitForVisible(webDriver, msgSuccess, 20);
+            System.out.println("System Confirmation: " + successAlert.getText());
             return true;
-        } catch (Exception e) {
-            System.out.println("Booking validation failed.");
+        } catch (Exception ex) {
+            System.out.println("Failed to validate booking confirmation.");
             return false;
         }
     }
 
     public void logout() {
-        System.out.println("Initiating Logout...");
+        System.out.println("Terminating user session...");
         try {
+            JavascriptExecutor jsExec = (JavascriptExecutor) webDriver;
             try {
-                WebElement menu = WaitUtils.waitForClickable(driver, accountMenu, 5);
-                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", menu);
+                WebElement accountDrop = WaitUtils.waitForClickable(webDriver, navAccount, 5);
+                jsExec.executeScript("arguments[0].click();", accountDrop);
                 Thread.sleep(1000);
-            } catch (Exception ignore) {}
+            } catch (Exception ignored) {}
             
-            WebElement logout = WaitUtils.waitForClickable(driver, logoutBtn, 10);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", logout);
-            System.out.println("Logged out successfully!");
-        } catch (Exception e) {
-            System.out.println("Logout failed: " + e.getMessage());
+            WebElement exitBtn = WaitUtils.waitForClickable(webDriver, navLogout, 10);
+            jsExec.executeScript("arguments[0].click();", exitBtn);
+            System.out.println("Session terminated successfully.");
+        } catch (Exception ex) {
+            System.out.println("Error during session termination: " + ex.getMessage());
         }
     }
 }

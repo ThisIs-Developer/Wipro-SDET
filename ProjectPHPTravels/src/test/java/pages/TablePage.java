@@ -9,93 +9,89 @@ import java.util.*;
 
 public class TablePage {
 
-    private WebDriver driver;
+    private WebDriver webDriver;
 
-    // Locators
-    private By tableHeaders = By.xpath("//table//thead//th");
-    private By tableRows = By.xpath("//table//tbody//tr");
+    private By locColHeaders = By.xpath("//table//thead//th");
+    private By locDataRows = By.xpath("//table//tbody//tr");
 
     public TablePage(WebDriver driver) {
-        this.driver = driver;
+        this.webDriver = driver;
     }
 
-    //1
     public List<Map<String, String>> getTableData() {
-        List<Map<String, String>> tableData = new ArrayList<>();
+        List<Map<String, String>> extractedGrid = new ArrayList<>();
         
-        List<WebElement> headerElements = WaitUtils.waitForAllVisible(driver, tableHeaders, 10);
-        List<String> headers = new ArrayList<>();
-        for (WebElement header : headerElements) {
-            headers.add(header.getText().trim());
+        List<WebElement> thNodes = WaitUtils.waitForAllVisible(webDriver, locColHeaders, 10);
+        List<String> keyList = new ArrayList<>();
+        
+        for (WebElement th : thNodes) {
+            keyList.add(th.getText().trim());
         }
-        
-        List<WebElement> rowElements = driver.findElements(tableRows);
 
-        for (WebElement row : rowElements) {
-            List<WebElement> columns = row.findElements(By.tagName("td"));
-            Map<String, String> rowData = new LinkedHashMap<>();
+        List<WebElement> trNodes = webDriver.findElements(locDataRows);
 
-            for (int i = 0; i < columns.size(); i++) {
-                if (i < headers.size()) { 
-                    rowData.put(headers.get(i), columns.get(i).getText().trim());
+        for (WebElement tr : trNodes) {
+            List<WebElement> tdNodes = tr.findElements(By.tagName("td"));
+            Map<String, String> rowMapping = new LinkedHashMap<>(); 
+
+            for (int colIdx = 0; colIdx < tdNodes.size(); colIdx++) {
+                if (colIdx < keyList.size()) { 
+                    rowMapping.put(keyList.get(colIdx), tdNodes.get(colIdx).getText().trim());
                 }
             }
-            if(!rowData.isEmpty()) {
-                tableData.add(rowData);
+            if(!rowMapping.isEmpty()) {
+                extractedGrid.add(rowMapping);
             }
         }
-        return tableData;
+        return extractedGrid;
     }
 
-    // 2
-    public void findDuplicateBookings(List<Map<String, String>> tableData) {
-        Set<String> uniqueIds = new HashSet<>();
-        boolean duplicateFound = false;
+    public void findDuplicateBookings(List<Map<String, String>> gridData) {
+        Set<String> processedInvoices = new HashSet<>();
+        boolean hasDuplicates = false;
 
-        System.out.println("Checking for duplicate invoices...");
-        for (Map<String, String> row : tableData) {
-            String invoiceId = row.get("INVOICE"); 
+        System.out.println("Scanning grid for repeating invoice numbers...");
+        for (Map<String, String> record : gridData) {
+            String inv = record.get("INVOICE"); 
             
-            if (invoiceId != null && !uniqueIds.add(invoiceId)) {
-                System.out.println("Duplicate Invoice Found! ID: " + invoiceId);
-                duplicateFound = true;
+            if (inv != null && !processedInvoices.add(inv)) {
+                System.out.println("Conflict Detected! Repeating Invoice: " + inv);
+                hasDuplicates = true;
             }
         }
         
-        if (!duplicateFound) {
-            System.out.println("✅ No duplicate invoices found in the table.");
+        if (!hasDuplicates) {
+            System.out.println("Scan Complete: Data is clean, no duplicates.");
         }
     }
 
-    // 3
-    public void printHighestAndLowestPrice(List<Map<String, String>> tableData) {
-        double maxPrice = Double.MIN_VALUE;
-        double minPrice = Double.MAX_VALUE;
-        String maxBookingInfo = "";
-        String minBookingInfo = "";
+    public void printHighestAndLowestPrice(List<Map<String, String>> gridData) {
+        double highestVal = Double.MIN_VALUE;
+        double lowestVal = Double.MAX_VALUE;
+        String topBookingInfo = "N/A";
+        String bottomBookingInfo = "N/A";
 
-        for (Map<String, String> row : tableData) {
-            String priceString = row.get("PRICE"); 
-            String invoiceId = row.get("INVOICE");
+        for (Map<String, String> record : gridData) {
+            String rawAmount = record.get("PRICE"); 
+            String invNum = record.get("INVOICE");
             
-            if (priceString != null && !priceString.isEmpty()) {
+            if (rawAmount != null && !rawAmount.isEmpty()) {
                 try {
-                    double price = Double.parseDouble(priceString.replaceAll("[^0-9.]", ""));
+                    double parsedAmount = Double.parseDouble(rawAmount.replaceAll("[^0-9.]", ""));
 
-                    if (price > maxPrice) {
-                        maxPrice = price;
-                        maxBookingInfo = invoiceId + " (" + priceString + ")";
+                    if (parsedAmount > highestVal) {
+                        highestVal = parsedAmount;
+                        topBookingInfo = String.format("%s (%s)", invNum, rawAmount);
                     }
-                    if (price < minPrice) {
-                        minPrice = price;
-                        minBookingInfo = invoiceId + " (" + priceString + ")";
+                    if (parsedAmount < lowestVal) {
+                        lowestVal = parsedAmount;
+                        bottomBookingInfo = String.format("%s (%s)", invNum, rawAmount);
                     }
-                } catch (NumberFormatException e) {
-                }
+                } catch (NumberFormatException ignored) {}
             }
         }
 
-        System.out.println("Highest Booking Amount: " + maxBookingInfo);
-        System.out.println("Lowest Booking Amount: " + minBookingInfo);
+        System.out.println("Maximum Expenditure: " + topBookingInfo);
+        System.out.println("Minimum Expenditure: " + bottomBookingInfo);
     }
 }

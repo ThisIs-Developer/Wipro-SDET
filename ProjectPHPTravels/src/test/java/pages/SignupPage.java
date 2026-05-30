@@ -1,84 +1,80 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import java.time.Duration;
 import utilities.WaitUtils;
 
 public class SignupPage {
 
-    private WebDriver driver;
-    
-    private By understandButton = By.xpath("//button[contains(text(), 'I Understand')]");
+    private WebDriver webAppDriver;
 
-    private By firstNameField = By.name("first_name");
-    private By lastNameField = By.name("last_name");
-    private By emailField = By.name("email"); 
-    private By passwordField = By.name("password");
-    private By confirmPasswordField = By.xpath("//input[@placeholder='Confirm Password']"); 
+    private By btnUnderstand = By.xpath("//button[contains(text(), 'I Understand')]");
+    private By locFName = By.name("first_name");
+    private By locLName = By.name("last_name");
+    private By locMail = By.name("email"); 
+    private By locPass = By.name("password");
+    private By locPassConfirm = By.xpath("//input[@placeholder='Confirm Password']"); 
 
-    private By captchaLabel = By.xpath("//label[contains(text(), 'Security Check')]");
-    private By captchaInput = By.xpath("//input[@placeholder='Enter the answer']");
-    private By termsCheckbox = By.xpath("//input[@type='checkbox']");
-    private By signupButton = By.cssSelector("button[type='submit']");
+    private By locCaptchaText = By.xpath("//input[@placeholder='Enter the answer']");
+    private By chkTerms = By.xpath("//input[@type='checkbox']");
+    private By btnRegister = By.cssSelector("button[type='submit']");
 
     public SignupPage(WebDriver driver) {
-        this.driver = driver;
+        this.webAppDriver = driver;
     }
 
     public void closeDemoPopupIfPresent() {
         try {
-            WebElement btn = WaitUtils.waitForClickable(driver, understandButton, 3);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
-            System.out.println("Demo popup closed successfully!");
+            WebElement overlayBtn = WaitUtils.waitForClickable(webAppDriver, btnUnderstand, 3);
+            ((JavascriptExecutor) webAppDriver).executeScript("arguments[0].click();", overlayBtn);
+            System.out.println("Registration overlay dismissed.");
             Thread.sleep(1000);
-        } catch (Exception e) {
-            System.out.println("No demo popup appeared.");
+        } catch (Exception ex) {
+            System.out.println("Registration overlay not detected.");
         }
     }
 
-    public void enterPersonalDetails(String fname, String lname) {
-        WaitUtils.waitForVisible(driver, firstNameField, 10).sendKeys(fname);
-        driver.findElement(lastNameField).sendKeys(lname);
+    public void enterPersonalDetails(String firstName, String lastName) {
+        WaitUtils.waitForVisible(webAppDriver, locFName, 10).sendKeys(firstName);
+        webAppDriver.findElement(locLName).sendKeys(lastName);
     }
 
-    public void enterAccountDetails(String email, String password) {
+    public void enterAccountDetails(String userEmail, String userSecret) {
         try {
-            driver.findElement(emailField).sendKeys(email);
-        } catch (Exception e) {
-            driver.findElement(By.name("user_email")).sendKeys(email);
+            webAppDriver.findElement(locMail).sendKeys(userEmail);
+        } catch (NoSuchElementException nse) {
+            webAppDriver.findElement(By.name("user_email")).sendKeys(userEmail);
         }
         
-        driver.findElement(passwordField).sendKeys(password);
-        driver.findElement(confirmPasswordField).sendKeys(password);
+        webAppDriver.findElement(locPass).sendKeys(userSecret);
+        webAppDriver.findElement(locPassConfirm).sendKeys(userSecret); 
     }
 
     public void waitForManualCaptchaSolve() {
-        System.out.println("Alert: Solve Captcha manually, u have 30 seconds...");
+        System.out.println("WAITING: Please resolve the Captcha. 30 second timeout...");
         try {
-            WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(30));
+            WebDriverWait customWait = new WebDriverWait(webAppDriver, Duration.ofSeconds(30));
             
-            wait.until(d -> {
-                String val = d.findElement(captchaInput).getAttribute("value");
-                return val != null && !val.trim().isEmpty();
+            customWait.until(browser -> {
+                String inputStatus = browser.findElement(locCaptchaText).getAttribute("value");
+                return inputStatus != null && !inputStatus.trim().isEmpty();
             });
             
-            System.out.println("Captcha value detected! Proceeding to submit...");
-            
+            System.out.println("Captcha resolved successfully. Continuing flow.");
             Thread.sleep(1000); 
-        } catch (Exception e) {
-            System.out.println("Manual Captcha entry timeout!");
+        } catch (Exception ex) {
+            System.out.println("Timeout: Captcha was not resolved in time.");
         }
     }
 
     public void clickSignup() {
-        WebElement checkbox = WaitUtils.waitForPresence(driver, termsCheckbox, 5);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", checkbox);
+        JavascriptExecutor executor = (JavascriptExecutor) webAppDriver;
         
-        WebElement btn = WaitUtils.waitForClickable(driver, signupButton, 5);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+        WebElement termsNode = WaitUtils.waitForPresence(webAppDriver, chkTerms, 5);
+        executor.executeScript("arguments[0].click();", termsNode);
+        
+        WebElement registerNode = WaitUtils.waitForClickable(webAppDriver, btnRegister, 5);
+        executor.executeScript("arguments[0].click();", registerNode);
     }
 }
