@@ -1,51 +1,32 @@
-Feature: Tutorials Ninja Automation
+Feature: PHPTravels Automation
 
-  Background:
-    Given user opens TutorialsNinja website
+Background:
+	Given user launches browser
 
-  @Regression @Register
-  Scenario: Register User
-    When user registers with valid details
-    Then registration should be successful
+@Smoke
+Scenario: Validate User Registration
+	When user enters registration details
+	Then validate registration successfully
 
-  @Smoke @Login
-  Scenario: Login User
-    When user logs in using excel data
-    Then login should be successful
-  
-  @Regression @Search
-  Scenario Outline: Search Product
-    When user searches for <product>
-    Then search should complete
 
-    Examples:
-      | product   |
-      | phone     |
-      | Sony VAIO |
-      | tab       |
-  
-  @Smoke @Cart
-  Scenario Outline: Add Product To Cart
-    When user adds <product> to cart
-    Then product should be added successfully
+@Smoke @Regression
+Scenario Outline: Validate Login Functionality
+	When user enters <username> and <password>
+	Then validate login result
+	
+Examples:
+| username            | password |
+| user@phptravels.com | demouser |
+| invalid@gmail.com   | invalid  |
+|                     | demouser |
+| user@phptravels.com |          |
 
-    Examples:
-      | product   |
-      | phone     |
-      | Sony VAIO |
-      | tab       |
-  
-  @Smoke @CartUpdate
-  Scenario: Remove Products
-    When user removes products from cart
-    Then cart should update
-  
-  @Smoke @Checkout
-  Scenario: Checkout Product
-    When user proceeds to checkout
-    Then checkout page should open
-  
-  @Smoke @Logout
-  Scenario: Logout User
-    When user logs out
-    Then logout should be successful
+@Regression
+Scenario: Validate Hotel Search
+	When user searches hotel details
+	Then validate hotel search result
+
+@Smoke @Regression
+Scenario: Validate Complete Booking Workflow
+	When user completes booking
+	Then validate booking confirmation
