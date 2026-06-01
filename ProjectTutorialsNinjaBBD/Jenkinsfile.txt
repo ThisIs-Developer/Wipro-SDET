@@ -1,0 +1,59 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/ThisIs-Developer/Wipro-SDET'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('ProjectTutorialsNinjaBBD') {
+                    bat 'mvn clean'
+                }
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                dir('ProjectTutorialsNinjaBBD') {
+                    bat 'mvn compile'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('ProjectTutorialsNinjaBBD') {
+                    bat 'mvn test'
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('ProjectTutorialsNinjaBBD') {
+                    bat 'mvn package'
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build Successful'
+        }
+
+        failure {
+            echo 'Build Failed'
+        }
+    }
+}
