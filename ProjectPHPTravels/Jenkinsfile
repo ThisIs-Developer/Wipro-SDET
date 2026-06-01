@@ -9,32 +9,40 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/ThisIs-Developer/Wipro-SDET.git'
+                git branch: 'master',
+                    url: 'https://github.com/ThisIs-Developer/Wipro-SDET'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'mvn clean'
+                dir('ProjectPHPTravels') {
+                    bat 'mvn clean'
+                }
             }
         }
 
         stage('Compile') {
             steps {
-                bat 'mvn compile'
+                dir('ProjectPHPTravels') {
+                    bat 'mvn compile'
+                }
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                dir('ProjectPHPTravels') {
+                    bat 'mvn test'
+                }
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package'
+                dir('ProjectPHPTravels') {
+                    bat 'mvn package'
+                }
             }
         }
     }
