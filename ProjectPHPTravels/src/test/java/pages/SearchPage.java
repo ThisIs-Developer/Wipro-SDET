@@ -18,7 +18,7 @@ public class SearchPage {
     private By inputArrival = By.name("checkin_date");
     private By inputDeparture = By.name("checkout_date");
     private By dropTravellers = By.xpath("//*[contains(text(), 'Traveler') or contains(@class, 'traveller')]");
-    private By btnTriggerSearch = By.xpath("//button[@type='submit' and contains(., 'Search Hotels')]");
+    private By btnTriggerSearch = By.xpath("//button[@title='Search Hotels']");
     
     private By btnUnderstand = By.xpath("//button[contains(text(), 'I Understand')]");
     
