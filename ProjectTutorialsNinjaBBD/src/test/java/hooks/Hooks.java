@@ -1,32 +1,25 @@
 package hooks;
 
-import java.time.Duration;
-
+import io.cucumber.java.AfterAll;
+import io.cucumber.java.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.time.Duration;
 
 public class Hooks {
-
+    
     public static WebDriver driver;
 
-    @Before
-    public void setup() {
-
-        WebDriverManager.chromedriver().setup();
-
+    @BeforeAll
+    public static void setup() {
         driver = new ChromeDriver();
-
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.manage().window().maximize();
     }
 
-    @After
-    public void tearDown() {
-
+    @AfterAll
+    public static void tearDown() {
         if (driver != null) {
             driver.quit();
         }
