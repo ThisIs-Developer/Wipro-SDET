@@ -4,6 +4,7 @@ pipeline {
 
     tools {
         maven 'Maven3'
+        jdk 'jdk 21'
     }
 
     stages {
@@ -18,7 +19,15 @@ pipeline {
         stage('Build') {
             steps {
                 dir('BlazeDemo') {
-                    bat 'mvn clean compile'
+                    bat 'mvn clean'
+                }
+            }
+        }
+        
+        stage('Compile') {
+            steps {
+                dir('BlazeDemo') {
+                    bat 'mvn compile'
                 }
             }
         }
@@ -42,7 +51,7 @@ pipeline {
         stage('Docker Run') {
             steps {
                 dir('BlazeDemo') {
-                    bat 'docker run --rm blazedemo-framework'
+                    bat 'docker run blazedemo-framework'
                 }
             }
         }
