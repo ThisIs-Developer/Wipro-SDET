@@ -1,0 +1,27 @@
+2026-06-06 10:29:33 [main] INFO  testcases.FlightBookingTest - Launching Browser : chrome
+2026-06-06 10:29:50 [main] INFO  testcases.FlightBookingTest - Application Opened
+2026-06-06 10:29:50 [main] INFO  testcases.FlightBookingTest - Verifying Home Page
+2026-06-06 10:29:50 [main] INFO  testcases.FlightBookingTest - Home Page Verification Completed
+2026-06-06 10:29:50 [main] INFO  testcases.FlightBookingTest - Closing Browser
+2026-06-06 10:29:52 [main] INFO  testcases.FlightBookingTest - Launching Browser : chrome
+2026-06-06 10:29:55 [main] INFO  testcases.FlightBookingTest - Application Opened
+2026-06-06 10:29:57 [main] INFO  testcases.FlightBookingTest - Flight Booking Started
+2026-06-06 10:29:59 [main] INFO  testcases.FlightBookingTest - Cities Selected
+2026-06-06 10:30:00 [main] INFO  testcases.FlightBookingTest - Flight Selected
+2026-06-06 10:30:04 [main] INFO  testcases.FlightBookingTest - Passenger Details Entered
+2026-06-06 10:30:04 [main] INFO  testcases.FlightBookingTest - Booking Successful
+2026-06-06 10:30:04 [main] INFO  testcases.FlightBookingTest - Success Screenshot Captured
+2026-06-06 10:30:08 [main] INFO  testcases.FlightBookingTest - Booking Details Saved To Excel
+2026-06-06 10:30:09 [main] INFO  testcases.FlightBookingTest - Closing Browser
+2026-06-06 10:50:11 [main] INFO  testcases.FlightBookingTest - Launching Browser : chrome
+2026-06-06 10:50:19 [main] INFO  testcases.FlightBookingTest - Application Opened
+2026-06-06 10:50:19 [main] INFO  testcases.FlightBookingTest - Home Page Verification Started
+2026-06-06 10:50:22 [main] INFO  testcases.FlightBookingTest - Home Page Verification Completed
+2026-06-06 10:50:23 [main] INFO  testcases.FlightBookingTest - Flight Search Verification Started
+2026-06-06 10:50:24 [main] INFO  testcases.FlightBookingTest - Flight Search Verification Completed
+2026-06-06 10:50:24 [main] INFO  testcases.FlightBookingTest - Purchase Page Verification Started
+2026-06-06 10:50:30 [main] INFO  testcases.FlightBookingTest - Purchase Page Verification Completed
+2026-06-06 10:50:30 [main] INFO  testcases.FlightBookingTest - Confirmation Verification Started
+2026-06-06 10:50:32 [main] INFO  testcases.FlightBookingTest - Success Screenshot Captured
+2026-06-06 10:50:36 [main] INFO  testcases.FlightBookingTest - Booking Confirmation Completed
+2026-06-06 10:50:38 [main] INFO  testcases.FlightBookingTest - Closing Browser

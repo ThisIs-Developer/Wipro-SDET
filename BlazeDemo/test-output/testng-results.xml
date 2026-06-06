@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-06T10:50:11 IST" name="FlightBookingSuite" finished-at="2026-06-06T10:50:40 IST" duration-ms="28954">
+    <groups>
+      <group name="regression">
+        <method signature="FlightBookingTest.verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@4fbda97b]" name="verifyHomePage" class="testcases.FlightBookingTest"/>
+        <method signature="FlightBookingTest.verifyFlightSearch()[pri:2, instance:testcases.FlightBookingTest@4fbda97b]" name="verifyFlightSearch" class="testcases.FlightBookingTest"/>
+        <method signature="FlightBookingTest.verifyPurchasePage()[pri:3, instance:testcases.FlightBookingTest@4fbda97b]" name="verifyPurchasePage" class="testcases.FlightBookingTest"/>
+        <method signature="FlightBookingTest.verifyBookingConfirmation()[pri:4, instance:testcases.FlightBookingTest@4fbda97b]" name="verifyBookingConfirmation" class="testcases.FlightBookingTest"/>
+      </group> <!-- regression -->
+      <group name="smoke">
+        <method signature="FlightBookingTest.verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@4fbda97b]" name="verifyHomePage" class="testcases.FlightBookingTest"/>
+      </group> <!-- smoke -->
+    </groups>
+    <test started-at="2026-06-06T10:50:11 IST" name="FlightBookingTests" finished-at="2026-06-06T10:50:40 IST" duration-ms="28954">
+      <class name="testcases.FlightBookingTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.FlightBookingTest@4fbda97b]" started-at="2026-06-06T10:50:11 IST" name="setup" finished-at="2026-06-06T10:50:19 IST" duration-ms="7815" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@4fbda97b]" started-at="2026-06-06T10:50:19 IST" name="verifyHomePage" finished-at="2026-06-06T10:50:23 IST" duration-ms="3622" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyHomePage -->
+        <test-method signature="verifyFlightSearch()[pri:2, instance:testcases.FlightBookingTest@4fbda97b]" started-at="2026-06-06T10:50:23 IST" name="verifyFlightSearch" finished-at="2026-06-06T10:50:24 IST" depends-on-methods="testcases.FlightBookingTest.verifyHomePage" duration-ms="1438" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyFlightSearch -->
+        <test-method signature="verifyPurchasePage()[pri:3, instance:testcases.FlightBookingTest@4fbda97b]" started-at="2026-06-06T10:50:24 IST" name="verifyPurchasePage" finished-at="2026-06-06T10:50:30 IST" depends-on-methods="testcases.FlightBookingTest.verifyFlightSearch" duration-ms="6103" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPurchasePage -->
+        <test-method signature="verifyBookingConfirmation()[pri:4, instance:testcases.FlightBookingTest@4fbda97b]" started-at="2026-06-06T10:50:30 IST" name="verifyBookingConfirmation" finished-at="2026-06-06T10:50:38 IST" depends-on-methods="testcases.FlightBookingTest.verifyPurchasePage" duration-ms="8065" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBookingConfirmation -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.FlightBookingTest@4fbda97b]" started-at="2026-06-06T10:50:38 IST" name="tearDown" finished-at="2026-06-06T10:50:40 IST" duration-ms="1489" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testcases.FlightBookingTest -->
+    </test> <!-- FlightBookingTests -->
+  </suite> <!-- FlightBookingSuite -->
+</testng-results>

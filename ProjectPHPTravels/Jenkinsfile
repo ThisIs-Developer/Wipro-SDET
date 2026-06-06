@@ -45,6 +45,22 @@ pipeline {
                 }
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                dir('ProjectPHPTravels') {
+                    bat 'docker build -t cucumber-framework .'
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                dir('ProjectPHPTravels') {
+                    bat 'docker run --rm cucumber-framework'
+                }
+            }
+        }
     }
 
     post {
@@ -54,6 +70,10 @@ pipeline {
 
         failure {
             echo 'Build Failed'
+        }
+
+        always {
+            echo 'Pipeline Execution Completed'
         }
     }
 }
