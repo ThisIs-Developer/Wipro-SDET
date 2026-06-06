@@ -29,11 +29,12 @@ public class BaseTest {
 
         switch (browser.toLowerCase()) {
         case "chrome":
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            driver = new ChromeDriver(options);
+//            ChromeOptions options = new ChromeOptions();
+//            options.addArguments("--headless");
+//            options.addArguments("--no-sandbox");
+//            options.addArguments("--disable-dev-shm-usage");
+//            driver = new ChromeDriver(options);
+        	driver = new ChromeDriver();
             break;
 
         case "firefox":
