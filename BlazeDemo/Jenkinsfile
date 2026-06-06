@@ -31,7 +31,6 @@ pipeline {
             }
         }
 
-        /*
         stage('Docker Build') {
             steps {
                 dir('BlazeDemo') {
@@ -47,7 +46,6 @@ pipeline {
                 }
             }
         }
-        */
     }
 
     post {
