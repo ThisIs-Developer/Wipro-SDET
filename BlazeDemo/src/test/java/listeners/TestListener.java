@@ -18,7 +18,6 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("FAILED : "+ result.getName());
-        System.out.println(result.getThrowable());
     }
 
     @Override

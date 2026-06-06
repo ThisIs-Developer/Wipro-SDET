@@ -13,28 +13,29 @@ public class FlightsPage {
     private WebDriver driver;
     private WaitUtils wait;
 
+    private By flightTable = By.cssSelector("table.table");
+    private By flightRows = By.cssSelector("table.table tbody tr");
+    private By chooseFlightButtons = By.cssSelector("input[value='Choose This Flight']");
+
     public FlightsPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WaitUtils(driver);
     }
 
-    private By flightTable =  By.cssSelector("table.table");
-    private By flightRows =  By.cssSelector("table.table tbody tr");
-    private By chooseFlightButtons = By.cssSelector( "input[value='Choose This Flight']");
-    
     public boolean isFlightTableDisplayed() {
+
         WebElement table = driver.findElement(flightTable);
         wait.waitForVisibility(table);
         return table.isDisplayed();
     }
 
-    public boolean verifyFlightsAvailable() {
-        return getFlightCount() > 0;
-    }
-
     public int getFlightCount() {
         List<WebElement> rows = driver.findElements(flightRows);
         return rows.size();
+    }
+
+    public boolean hasFlights() {
+        return getFlightCount() > 0;
     }
 
     public void chooseFirstFlight() {

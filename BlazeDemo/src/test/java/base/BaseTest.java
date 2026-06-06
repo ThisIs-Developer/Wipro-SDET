@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -17,12 +18,13 @@ import utilities.ConfigReader;
 public class BaseTest {
 
     protected WebDriver driver;
-    protected Logger logger = LogManager.getLogger(this.getClass());
+    private static final Logger logger = LogManager.getLogger(BaseTest.class);
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeClass
     public void setup() {
+
         String browser = ConfigReader.getProperty("browser");
-        logger.info("Launching Browser : "+ browser);
+        logger.info("Launching Browser : " + browser);
 
         switch (browser.toLowerCase()) {
         case "chrome":
@@ -32,13 +34,13 @@ public class BaseTest {
         case "firefox":
             driver = new FirefoxDriver();
             break;
-
+            
         case "edge":
             driver = new EdgeDriver();
             break;
 
         default:
-            throw new RuntimeException("Unsupported Browser : "+ browser);
+            throw new RuntimeException("Unsupported Browser : " + browser);
         }
 
         driver.manage().window().maximize();
@@ -47,15 +49,11 @@ public class BaseTest {
         logger.info("Application Opened");
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterClass
     public void tearDown() {
         if (driver != null) {
             logger.info("Closing Browser");
             driver.quit();
         }
-    }
-
-    public WebDriver getDriver() {
-        return driver;
     }
 }

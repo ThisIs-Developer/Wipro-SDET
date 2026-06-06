@@ -13,11 +13,7 @@ public class PurchasePage {
     private WebDriver driver;
     private WaitUtils wait;
 
-    public PurchasePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WaitUtils(driver);
-    }
-
+    private By priceText = By.xpath("//p[contains(text(),'Price')]");
     private By totalCost = By.cssSelector("p > em");
     private By purchaseFlightButton = By.cssSelector("input[value='Purchase Flight']");
     private By nameField = By.id("inputName");
@@ -28,15 +24,22 @@ public class PurchasePage {
     private By cardTypeDropdown = By.id("cardType");
     private By cardNumberField = By.id("creditCardNumber");
     private By monthField = By.id("creditCardMonth");
-    private By yearField = By.id("creditCardYear");
+    private By yearField =  By.id("creditCardYear");
     private By nameOnCardField = By.id("nameOnCard");
 
+    public PurchasePage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WaitUtils(driver);
+    }
+
     public boolean isPriceDisplayed() {
-        return driver.getPageSource().contains("Price:");
+        WebElement price = driver.findElement(priceText);
+        wait.waitForVisibility(price);
+        return price.isDisplayed();
     }
 
     public boolean isTotalCostDisplayed() {
-        WebElement cost =driver.findElement(totalCost);
+        WebElement cost = driver.findElement(totalCost);
         wait.waitForVisibility(cost);
         return cost.isDisplayed();
     }

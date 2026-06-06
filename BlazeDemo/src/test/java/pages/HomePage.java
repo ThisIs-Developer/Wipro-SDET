@@ -20,8 +20,7 @@ public class HomePage {
 
     private By departureDropdown = By.name("fromPort");
     private By destinationDropdown = By.name("toPort");
-    private By findFlightsButton = By.cssSelector(
-                    "input[type='submit']");
+    private By findFlightsButton = By.cssSelector("input[type='submit']");
 
     public String getPageTitle() {
         return driver.getTitle();

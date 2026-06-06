@@ -10,14 +10,12 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import base.BaseTest;
-import listeners.TestListener;
 import pages.ConfirmationPage;
 import pages.FlightsPage;
 import pages.HomePage;
@@ -28,7 +26,7 @@ import utilities.ScreenshotUtil;
 public class FlightBookingTest extends BaseTest {
 
     private static final Logger logger = LogManager.getLogger(FlightBookingTest.class);
-    private ExtentReports extent = ExtentManager.getInstance();
+    private final ExtentReports extent = ExtentManager.getInstance();
     private ExtentTest test;
 
     private HomePage homePage;
@@ -36,12 +34,12 @@ public class FlightBookingTest extends BaseTest {
     private PurchasePage purchasePage;
     private ConfirmationPage confirmationPage;
 
-    @Test(priority = 1, groups = {"smoke", "regression"})
+    @Test(priority=1, groups={"smoke", "regression"})
     public void verifyHomePage() {
         test = extent.createTest("Verify Home Page");
         logger.info("Home Page Verification Started");
+        
         homePage = new HomePage(driver);
-
         Assert.assertEquals(homePage.getPageTitle(),"BlazeDemo");
         Assert.assertEquals(homePage.getPageUrl(),"https://blazedemo.com/");
         Assert.assertTrue(homePage.isDepartureDropdownDisplayed());
@@ -63,8 +61,7 @@ public class FlightBookingTest extends BaseTest {
         flightsPage = new FlightsPage(driver);
 
         Assert.assertTrue(flightsPage.isFlightTableDisplayed());
-        Assert.assertTrue(flightsPage.verifyFlightsAvailable());
-        Assert.assertTrue(flightsPage.getFlightCount() > 0);
+        Assert.assertTrue(flightsPage.hasFlights());
 
         flightsPage.chooseFirstFlight();
         test.pass("Flight Search Verified");
@@ -79,7 +76,7 @@ public class FlightBookingTest extends BaseTest {
 
         Assert.assertTrue(purchasePage.isPriceDisplayed());
         Assert.assertTrue(purchasePage.isTotalCostDisplayed());
-        
+
         purchasePage.enterName("Tulsi Das");
         purchasePage.enterAddress("123 Main Street");
         purchasePage.enterCity("Kolkata");
@@ -114,16 +111,15 @@ public class FlightBookingTest extends BaseTest {
         String amount = confirmationPage.getAmount();
         String cardNumber = confirmationPage.getCardNumber();
         String bookingDate = confirmationPage.getDate();
-        
+
         String screenshotPath = ScreenshotUtil.captureScreenshot(driver,"BookingSuccess");
         test.addScreenCaptureFromPath(screenshotPath);
-
-        logger.info("Success Screenshot Captured");
+        logger.info("Screenshot Captured");
 
         String excelPath ="src/test/resources/testdata/BookingResult.xlsx";
         XSSFWorkbook workbook = new XSSFWorkbook();
-        
         XSSFSheet sheet = workbook.createSheet("BookingDetails");
+
         XSSFRow header = sheet.createRow(0);
         header.createCell(0).setCellValue("PurchaseId");
         header.createCell(1).setCellValue("Status");
