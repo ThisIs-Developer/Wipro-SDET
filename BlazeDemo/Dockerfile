@@ -30,4 +30,4 @@ COPY . .
 
 RUN mvn clean install -DskipTests
 
-CMD ["mvn", "-Dtest=RunnerTest", "test"]
+CMD ["mvn", "test"]
