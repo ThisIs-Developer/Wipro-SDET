@@ -18,15 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('BlazeDemo') {
-                    bat 'mvn clean'
-                }
-            }
-        }
-        
-        stage('Compile') {
-            steps {
-                dir('BlazeDemo') {
-                    bat 'mvn compile'
+                    bat 'mvn clean compile'
                 }
             }
         }
@@ -39,6 +31,7 @@ pipeline {
             }
         }
 
+        /*
         stage('Docker Build') {
             steps {
                 dir('BlazeDemo') {
@@ -50,10 +43,11 @@ pipeline {
         stage('Docker Run') {
             steps {
                 dir('BlazeDemo') {
-                    bat 'docker run blazedemo-framework'
+                    bat 'docker run --rm blazedemo-framework'
                 }
             }
         }
+        */
     }
 
     post {
