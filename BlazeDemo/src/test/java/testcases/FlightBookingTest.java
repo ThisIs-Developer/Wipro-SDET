@@ -2,9 +2,6 @@ package testcases;
 
 import java.io.FileOutputStream;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -21,11 +18,11 @@ import pages.FlightsPage;
 import pages.HomePage;
 import pages.PurchasePage;
 import utilities.ExtentManager;
+import utilities.Log;
 import utilities.ScreenshotUtil;
 
 public class FlightBookingTest extends BaseTest {
 
-    private static final Logger logger = LogManager.getLogger(FlightBookingTest.class);
     private final ExtentReports extent = ExtentManager.getInstance();
     private ExtentTest test;
 
@@ -37,7 +34,7 @@ public class FlightBookingTest extends BaseTest {
     @Test(priority=1, groups={"smoke", "regression"})
     public void verifyHomePage() {
         test = extent.createTest("Verify Home Page");
-        logger.info("Home Page Verification Started");
+        Log.info("Home Page Verification Started");
         
         homePage = new HomePage(driver);
         Assert.assertEquals(homePage.getPageTitle(),"BlazeDemo");
@@ -51,13 +48,13 @@ public class FlightBookingTest extends BaseTest {
         homePage.clickFindFlights();
 
         test.pass("Home Page Verified Successfully");
-        logger.info("Home Page Verification Completed");
+        Log.info("Home Page Verification Completed");
     }
 
     @Test(priority = 2,groups = {"regression"},dependsOnMethods = "verifyHomePage")
     public void verifyFlightSearch() {
         test = extent.createTest("Verify Flight Search");
-        logger.info("Flight Search Verification Started");
+        Log.info("Flight Search Verification Started");
         flightsPage = new FlightsPage(driver);
 
         Assert.assertTrue(flightsPage.isFlightTableDisplayed());
@@ -65,13 +62,13 @@ public class FlightBookingTest extends BaseTest {
 
         flightsPage.chooseFirstFlight();
         test.pass("Flight Search Verified");
-        logger.info("Flight Search Verification Completed");
+        Log.info("Flight Search Verification Completed");
     }
 
     @Test(priority = 3,groups = {"regression"},dependsOnMethods = "verifyFlightSearch")
     public void verifyPurchasePage() {
         test = extent.createTest("Verify Purchase Page");
-        logger.info("Purchase Page Verification Started");
+        Log.info("Purchase Page Verification Started");
         purchasePage = new PurchasePage(driver);
 
         Assert.assertTrue(purchasePage.isPriceDisplayed());
@@ -90,13 +87,13 @@ public class FlightBookingTest extends BaseTest {
         purchasePage.clickPurchaseFlight();
 
         test.pass("Passenger And Payment Details Submitted");
-        logger.info("Purchase Page Verification Completed");
+        Log.info("Purchase Page Verification Completed");
     }
 
     @Test(priority = 4,groups = {"regression"},dependsOnMethods = "verifyPurchasePage")
     public void verifyBookingConfirmation() throws Exception {
         test = extent.createTest("Verify Booking Confirmation");
-        logger.info("Confirmation Verification Started");
+        Log.info("Confirmation Verification Started");
         confirmationPage = new ConfirmationPage(driver);
 
         Assert.assertEquals(confirmationPage.getSuccessMessage(),"Thank you for your purchase today!");
@@ -114,7 +111,7 @@ public class FlightBookingTest extends BaseTest {
 
         String screenshotPath = ScreenshotUtil.captureScreenshot(driver,"BookingSuccess");
         test.addScreenCaptureFromPath(screenshotPath);
-        logger.info("Screenshot Captured");
+        Log.info("Screenshot Captured");
 
         String excelPath ="src/test/resources/testdata/BookingResult.xlsx";
         XSSFWorkbook workbook = new XSSFWorkbook();
@@ -140,7 +137,7 @@ public class FlightBookingTest extends BaseTest {
         workbook.close();
 
         test.pass("Booking Confirmation Verified");
-        logger.info("Booking Confirmation Completed");
+        Log.info("Booking Confirmation Completed");
         extent.flush();
     }
 }

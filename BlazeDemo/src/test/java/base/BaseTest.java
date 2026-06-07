@@ -2,9 +2,6 @@ package base;
 
 import java.time.Duration;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -15,17 +12,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import utilities.ConfigReader;
+import utilities.Log;
 
 public class BaseTest {
 
     protected WebDriver driver;
-    private static final Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeClass
     public void setup() {
 
         String browser = ConfigReader.getProperty("browser");
-        logger.info("Launching Browser : " + browser);
+        Log.info("Launching Browser : " + browser);
 
         switch (browser.toLowerCase()) {
         case "chrome":
@@ -52,13 +49,13 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(ConfigReader.getProperty("url"));
-        logger.info("Application Opened");
+        Log.info("Application Opened");
     }
 
     @AfterClass
     public void tearDown() {
         if (driver != null) {
-            logger.info("Closing Browser");
+        	Log.info("Closing Browser");
             driver.quit();
         }
     }
