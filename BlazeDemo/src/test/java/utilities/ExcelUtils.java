@@ -8,42 +8,24 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtils {
 
-    public static String getCellData(String filePath, String sheetName, int rowNum, int cellNum) {
+	public static Object[][] getExcelData(String filePath, String sheetName) {
+	    try (FileInputStream fis = new FileInputStream(filePath);
+	         XSSFWorkbook workbook = new XSSFWorkbook(fis)) {
+	    	
+	        XSSFSheet sheet = workbook.getSheet(sheetName);
+	        int rowCount = sheet.getLastRowNum();
+	        int cellCount = sheet.getRow(0).getLastCellNum();
 
-        try (FileInputStream fis = new FileInputStream(filePath);
-             XSSFWorkbook workbook = new XSSFWorkbook(fis)) 
-        {
-            XSSFSheet sheet = workbook.getSheet(sheetName);
-
-            DataFormatter formatter = new DataFormatter();
-            return formatter.formatCellValue(sheet.getRow(rowNum).getCell(cellNum));
-
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to read Excel data",e);
-        }
-    }
-
-    public static int getRowCount(String filePath,String sheetName) {
-
-        try (FileInputStream fis = new FileInputStream(filePath);
-             XSSFWorkbook workbook = new XSSFWorkbook(fis)) 
-        {
-            XSSFSheet sheet = workbook.getSheet(sheetName);
-            return sheet.getLastRowNum();
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to get row count",e);
-        }
-    }
-
-    public static int getCellCount(String filePath, String sheetName, int rowNum) {
-
-        try (FileInputStream fis = new FileInputStream(filePath);
-             XSSFWorkbook workbook = new XSSFWorkbook(fis)) 
-        {
-            XSSFSheet sheet = workbook.getSheet(sheetName);
-            return sheet.getRow(rowNum).getLastCellNum();
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to get cell count",e);
-        }
-    }
+	        Object[][] data = new Object[rowCount][cellCount];
+	        DataFormatter formatter = new DataFormatter();
+	        for (int i = 1; i <= rowCount; i++) {
+	            for (int j = 0; j < cellCount; j++) {
+	                data[i - 1][j] = formatter.formatCellValue(sheet.getRow(i).getCell(j));
+	            }
+	        }
+	        return data;
+	    } catch (Exception e) {
+	        throw new RuntimeException("Unable to read excel data", e);
+	    }
+	}
 }

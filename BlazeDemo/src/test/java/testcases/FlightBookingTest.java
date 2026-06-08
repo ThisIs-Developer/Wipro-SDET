@@ -1,12 +1,7 @@
 package testcases;
 
-import java.io.FileOutputStream;
-
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -17,6 +12,7 @@ import pages.ConfirmationPage;
 import pages.FlightsPage;
 import pages.HomePage;
 import pages.PurchasePage;
+import utilities.ExcelUtils;
 import utilities.ExtentManager;
 import utilities.Log;
 import utilities.ScreenshotUtil;
@@ -30,6 +26,11 @@ public class FlightBookingTest extends BaseTest {
     private FlightsPage flightsPage;
     private PurchasePage purchasePage;
     private ConfirmationPage confirmationPage;
+    
+    @DataProvider(name = "bookingData")
+    public Object[][] bookingData() {
+        return ExcelUtils.getExcelData("src/test/resources/testdata/FlightBookingData.xlsx","BookingData");
+    }
 
     @Test(priority=1, groups={"smoke", "regression"})
     public void verifyHomePage() {
@@ -65,8 +66,10 @@ public class FlightBookingTest extends BaseTest {
         Log.info("Flight Search Verification Completed");
     }
 
-    @Test(priority = 3,groups = {"regression"},dependsOnMethods = "verifyFlightSearch")
-    public void verifyPurchasePage() {
+    @Test(priority = 3, groups = { "regression" }, dependsOnMethods = "verifyFlightSearch", dataProvider = "bookingData")
+    public void verifyPurchasePage(String name, String address, String city, String state, String zipCode, 
+    		String cardType, String cardNumber, String month, String year, String nameOnCard) {
+
         test = extent.createTest("Verify Purchase Page");
         Log.info("Purchase Page Verification Started");
         purchasePage = new PurchasePage(driver);
@@ -74,16 +77,16 @@ public class FlightBookingTest extends BaseTest {
         Assert.assertTrue(purchasePage.isPriceDisplayed());
         Assert.assertTrue(purchasePage.isTotalCostDisplayed());
 
-        purchasePage.enterName("Tulsi Das");
-        purchasePage.enterAddress("123 Main Street");
-        purchasePage.enterCity("Kolkata");
-        purchasePage.enterState("West Bengal");
-        purchasePage.enterZipCode("700001");
-        purchasePage.selectCardType("Visa");
-        purchasePage.enterCardNumber("4111111111111111");
-        purchasePage.enterMonth("12");
-        purchasePage.enterYear("2028");
-        purchasePage.enterNameOnCard("Tulsi Das");
+        purchasePage.enterName(name);
+        purchasePage.enterAddress(address);
+        purchasePage.enterCity(city);
+        purchasePage.enterState(state);
+        purchasePage.enterZipCode(zipCode);
+        purchasePage.selectCardType(cardType);
+        purchasePage.enterCardNumber(cardNumber);
+        purchasePage.enterMonth(month);
+        purchasePage.enterYear(year);
+        purchasePage.enterNameOnCard(nameOnCard);
         purchasePage.clickPurchaseFlight();
 
         test.pass("Passenger And Payment Details Submitted");
@@ -102,40 +105,11 @@ public class FlightBookingTest extends BaseTest {
         Assert.assertFalse(confirmationPage.getAmount().isEmpty());
         Assert.assertFalse(confirmationPage.getCardNumber().isEmpty());
         Assert.assertFalse(confirmationPage.getDate().isEmpty());
-        
-        String purchaseId = confirmationPage.getPurchaseId();
-        String status = confirmationPage.getStatus();
-        String amount = confirmationPage.getAmount();
-        String cardNumber = confirmationPage.getCardNumber();
-        String bookingDate = confirmationPage.getDate();
 
         String screenshotPath = ScreenshotUtil.captureScreenshot(driver,"BookingSuccess");
+
         test.addScreenCaptureFromPath(screenshotPath);
         Log.info("Screenshot Captured");
-
-        String excelPath ="src/test/resources/testdata/BookingResult.xlsx";
-        XSSFWorkbook workbook = new XSSFWorkbook();
-        XSSFSheet sheet = workbook.createSheet("BookingDetails");
-
-        XSSFRow header = sheet.createRow(0);
-        header.createCell(0).setCellValue("PurchaseId");
-        header.createCell(1).setCellValue("Status");
-        header.createCell(2).setCellValue("Amount");
-        header.createCell(3).setCellValue("CardNumber");
-        header.createCell(4).setCellValue("BookingDate");
-
-        XSSFRow row = sheet.createRow(1);
-        row.createCell(0).setCellValue(purchaseId);
-        row.createCell(1).setCellValue(status);
-        row.createCell(2).setCellValue(amount);
-        row.createCell(3).setCellValue(cardNumber);
-        row.createCell(4).setCellValue(bookingDate);
-
-        FileOutputStream fos = new FileOutputStream(excelPath);
-        workbook.write(fos);
-        fos.close();
-        workbook.close();
-
         test.pass("Booking Confirmation Verified");
         Log.info("Booking Confirmation Completed");
         extent.flush();
