@@ -12,8 +12,8 @@
           <include name="tearDown"/>
           <include name="verifyFlightSearch"/>
           <include name="verifyBookingConfirmation"/>
-          <include name="verifyPurchasePage"/>
           <include name="verifyHomePage"/>
+          <include name="verifyPurchasePage"/>
         </methods>
       </class> <!-- testcases.FlightBookingTest -->
     </classes>

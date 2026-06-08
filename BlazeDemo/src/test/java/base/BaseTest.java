@@ -4,7 +4,6 @@ import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,7 +15,7 @@ import utilities.Log;
 
 public class BaseTest {
 
-    protected WebDriver driver;
+    public WebDriver driver;
 
     @BeforeClass
     public void setup() {
@@ -26,11 +25,6 @@ public class BaseTest {
 
         switch (browser.toLowerCase()) {
         case "chrome":
-//            ChromeOptions options = new ChromeOptions();
-//            options.addArguments("--headless");
-//            options.addArguments("--no-sandbox");
-//            options.addArguments("--disable-dev-shm-usage");
-//            driver = new ChromeDriver(options);
         	driver = new ChromeDriver();
             break;
 
