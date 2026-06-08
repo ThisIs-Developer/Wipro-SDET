@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="0" failed="0" skipped="4">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-08T11:55:23 IST" name="FlightBookingSuite" finished-at="2026-06-08T11:55:43 IST" duration-ms="19113">
+  <suite started-at="2026-06-08T12:08:36 IST" name="FlightBookingSuite" finished-at="2026-06-08T12:08:37 IST" duration-ms="1083">
     <groups>
       <group name="regression">
         <method signature="FlightBookingTest.verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@5852c06f]" name="verifyHomePage" class="testcases.FlightBookingTest"/>
@@ -14,81 +14,187 @@
         <method signature="FlightBookingTest.verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@5852c06f]" name="verifyHomePage" class="testcases.FlightBookingTest"/>
       </group> <!-- smoke -->
     </groups>
-    <test started-at="2026-06-08T11:55:23 IST" name="FlightBookingTests" finished-at="2026-06-08T11:55:43 IST" duration-ms="19113">
+    <test started-at="2026-06-08T12:08:36 IST" name="FlightBookingTests" finished-at="2026-06-08T12:08:37 IST" duration-ms="1083">
       <class name="testcases.FlightBookingTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T11:55:23 IST" name="setup" finished-at="2026-06-08T11:55:31 IST" duration-ms="7098" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T12:08:36 IST" name="setup" finished-at="2026-06-08T12:08:37 IST" duration-ms="830" status="FAIL">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[Unsupported Browser : chromed]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: Unsupported Browser : chromed
+at base.BaseTest.setup(BaseTest.java:43)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T11:55:31 IST" name="verifyHomePage" finished-at="2026-06-08T11:55:33 IST" duration-ms="2102" status="PASS">
+        <test-method signature="verifyHomePage()[pri:1, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T12:08:37 IST" name="verifyHomePage" finished-at="2026-06-08T12:08:37 IST" duration-ms="0" status="SKIP">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[Unsupported Browser : chromed]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: Unsupported Browser : chromed
+at base.BaseTest.setup(BaseTest.java:43)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:188)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyHomePage -->
-        <test-method signature="verifyFlightSearch()[pri:2, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T11:55:33 IST" name="verifyFlightSearch" finished-at="2026-06-08T11:55:34 IST" depends-on-methods="testcases.FlightBookingTest.verifyHomePage" duration-ms="791" status="PASS">
+        <test-method signature="verifyFlightSearch()[pri:2, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T12:08:37 IST" name="verifyFlightSearch" finished-at="2026-06-08T12:08:37 IST" depends-on-methods="testcases.FlightBookingTest.verifyHomePage" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method testcases.FlightBookingTest.verifyFlightSearch() on instance testcases.FlightBookingTest@5852c06f depends on not successfully finished methods 
+[testcases.FlightBookingTest.verifyHomePage() on instance testcases.FlightBookingTest@5852c06f]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method testcases.FlightBookingTest.verifyFlightSearch() on instance testcases.FlightBookingTest@5852c06f depends on not successfully finished methods 
+[testcases.FlightBookingTest.verifyHomePage() on instance testcases.FlightBookingTest@5852c06f]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyFlightSearch -->
-        <test-method signature="verifyPurchasePage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T11:55:35 IST" name="verifyPurchasePage" data-provider="bookingData" finished-at="2026-06-08T11:55:39 IST" depends-on-methods="testcases.FlightBookingTest.verifyFlightSearch" duration-ms="3887" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Baivab Sarakr]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Park Street Area]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Kolkata]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[West Bengal]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[700001]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Visa]]>
-              </value>
-            </param>
-            <param index="6">
-              <value>
-                <![CDATA[4111111111111110]]>
-              </value>
-            </param>
-            <param index="7">
-              <value>
-                <![CDATA[12]]>
-              </value>
-            </param>
-            <param index="8">
-              <value>
-                <![CDATA[2028]]>
-              </value>
-            </param>
-            <param index="9">
-              <value>
-                <![CDATA[Baivab Sarakr]]>
-              </value>
-            </param>
-          </params>
+        <test-method signature="verifyPurchasePage(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:3, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T12:08:37 IST" name="verifyPurchasePage" finished-at="2026-06-08T12:08:37 IST" depends-on-methods="testcases.FlightBookingTest.verifyFlightSearch" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method testcases.FlightBookingTest.verifyPurchasePage() on instance testcases.FlightBookingTest@5852c06f depends on not successfully finished methods 
+[testcases.FlightBookingTest.verifyFlightSearch() on instance testcases.FlightBookingTest@5852c06f]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method testcases.FlightBookingTest.verifyPurchasePage() on instance testcases.FlightBookingTest@5852c06f depends on not successfully finished methods 
+[testcases.FlightBookingTest.verifyFlightSearch() on instance testcases.FlightBookingTest@5852c06f]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyPurchasePage -->
-        <test-method signature="verifyBookingConfirmation()[pri:4, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T11:55:39 IST" name="verifyBookingConfirmation" finished-at="2026-06-08T11:55:40 IST" depends-on-methods="testcases.FlightBookingTest.verifyPurchasePage" duration-ms="1651" status="PASS">
+        <test-method signature="verifyBookingConfirmation()[pri:4, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T12:08:37 IST" name="verifyBookingConfirmation" finished-at="2026-06-08T12:08:37 IST" depends-on-methods="testcases.FlightBookingTest.verifyPurchasePage" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method testcases.FlightBookingTest.verifyBookingConfirmation() on instance testcases.FlightBookingTest@5852c06f depends on not successfully finished methods 
+[testcases.FlightBookingTest.verifyPurchasePage() on instance testcases.FlightBookingTest@5852c06f]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method testcases.FlightBookingTest.verifyBookingConfirmation() on instance testcases.FlightBookingTest@5852c06f depends on not successfully finished methods 
+[testcases.FlightBookingTest.verifyPurchasePage() on instance testcases.FlightBookingTest@5852c06f]
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:159)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:744)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyBookingConfirmation -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T11:55:41 IST" name="tearDown" finished-at="2026-06-08T11:55:43 IST" duration-ms="2001" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testcases.FlightBookingTest@5852c06f]" started-at="2026-06-08T12:08:37 IST" name="tearDown" finished-at="2026-06-08T12:08:37 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

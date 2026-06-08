@@ -21,22 +21,25 @@ public class BaseTest {
     public void setup() {
 
         String browser = ConfigReader.getProperty("browser");
-        Log.info("Launching Browser : " + browser);
 
         switch (browser.toLowerCase()) {
         case "chrome":
         	driver = new ChromeDriver();
+            Log.info("Launching Browser : " + browser);
             break;
 
         case "firefox":
             driver = new FirefoxDriver();
+            Log.info("Launching Browser : " + browser);
             break;
             
         case "edge":
             driver = new EdgeDriver();
+            Log.info("Launching Browser : " + browser);
             break;
 
         default:
+            Log.error("Unsupported Browser : " + browser);
             throw new RuntimeException("Unsupported Browser : " + browser);
         }
 
