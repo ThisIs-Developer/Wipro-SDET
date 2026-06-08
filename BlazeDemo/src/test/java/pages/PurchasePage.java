@@ -13,8 +13,8 @@ public class PurchasePage {
     private WebDriver driver;
     private WaitUtils wait;
 
-    private By priceText = By.xpath("//p[contains(text(),'Price')]");
-    private By totalCost = By.cssSelector("p > em");
+    private By priceText = By.xpath("/html/body/div[2]/p[3]");
+    private By totalCost = By.xpath("/html/body/div[2]/p[4]");
     private By purchaseFlightButton = By.cssSelector("input[value='Purchase Flight']");
     private By nameField = By.id("inputName");
     private By addressField = By.id("address");

@@ -12,11 +12,11 @@ public class ConfirmationPage {
     private WaitUtils wait;
 
     private By successMessage = By.tagName("h1");
-    private By purchaseId = By.xpath("//td[text()='Id']/following-sibling::td");
-    private By status = By.xpath("//td[text()='Status']/following-sibling::td");
-    private By amount = By.xpath("//td[text()='Amount']/following-sibling::td");
-    private By cardNumber = By.xpath("//td[text()='Card Number']/following-sibling::td");
-    private By date = By.xpath("//td[text()='Date']/following-sibling::td");
+    private By purchaseId = By.xpath("/html/body/div[2]/div/table/tbody/tr[1]/td[2]");
+    private By status = By.xpath("/html/body/div[2]/div/table/tbody/tr[2]/td[2]");
+    private By amount = By.xpath("/html/body/div[2]/div/table/tbody/tr[3]/td[2]");
+    private By cardNumber = By.xpath("/html/body/div[2]/div/table/tbody/tr[4]/td[2]");
+    private By date = By.xpath("/html/body/div[2]/div/table/tbody/tr[7]/td[2]");
     
     public ConfirmationPage(WebDriver driver) {
         this.driver = driver;

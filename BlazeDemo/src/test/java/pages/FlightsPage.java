@@ -13,8 +13,8 @@ public class FlightsPage {
     private WebDriver driver;
     private WaitUtils wait;
 
-    private By flightTable = By.cssSelector("table.table");
-    private By flightRows = By.cssSelector("table.table tbody tr");
+    private By flightTable = By.cssSelector("table[class='table']");
+    private By flightRows = By.xpath("/html/body/div[2]/table/tbody/tr");
     private By chooseFlightButtons = By.cssSelector("input[value='Choose This Flight']");
 
     public FlightsPage(WebDriver driver) {
@@ -31,6 +31,7 @@ public class FlightsPage {
 
     public int getFlightCount() {
         List<WebElement> rows = driver.findElements(flightRows);
+//        System.out.println("Total Flight Count: "+rows.size());
         return rows.size();
     }
 
