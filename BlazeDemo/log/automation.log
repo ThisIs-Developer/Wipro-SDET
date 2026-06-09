@@ -1,12 +1,12 @@
-2026-06-08 18:06:19 [main] INFO  Log - Launching Browser : chrome
-2026-06-08 18:06:20 [main] INFO  Log - Application Opened
-2026-06-08 18:06:20 [main] INFO  Log - Home Page Verification Started
-2026-06-08 18:06:23 [main] INFO  Log - Home Page Verification Completed
-2026-06-08 18:06:23 [main] INFO  Log - Flight Search Verification Started
-2026-06-08 18:06:24 [main] INFO  Log - Flight Search Verification Completed
-2026-06-08 18:06:25 [main] INFO  Log - Purchase Page Verification Started
-2026-06-08 18:06:28 [main] INFO  Log - Purchase Page Verification Completed
-2026-06-08 18:06:28 [main] INFO  Log - Confirmation Verification Started
-2026-06-08 18:06:28 [main] INFO  Log - Screenshot Captured
-2026-06-08 18:06:28 [main] INFO  Log - Booking Confirmation Completed
-2026-06-08 18:06:29 [main] INFO  Log - Closing Browser
+2026-06-09 10:09:49 [main] INFO  Log - Launching Browser : chrome
+2026-06-09 10:09:51 [main] INFO  Log - Application Opened
+2026-06-09 10:09:51 [main] INFO  Log - Home Page Verification Started
+2026-06-09 10:09:52 [main] INFO  Log - Home Page Verification Completed
+2026-06-09 10:09:52 [main] INFO  Log - Flight Search Verification Started
+2026-06-09 10:09:53 [main] INFO  Log - Flight Search Verification Completed
+2026-06-09 10:09:55 [main] INFO  Log - Purchase Page Verification Started
+2026-06-09 10:09:58 [main] INFO  Log - Purchase Page Verification Completed
+2026-06-09 10:09:59 [main] INFO  Log - Confirmation Verification Started
+2026-06-09 10:09:59 [main] INFO  Log - Screenshot Captured
+2026-06-09 10:09:59 [main] INFO  Log - Booking Confirmation Completed
+2026-06-09 10:10:01 [main] INFO  Log - Closing Browser

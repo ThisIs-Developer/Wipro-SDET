@@ -1,9 +1,13 @@
-FROM maven:3.9.9-eclipse-temurin-17
+FROM selenium/standalone-chrome:latest
+
+USER root
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y maven openjdk-21-jdk
+  
 COPY . .
 
-RUN mvn clean compile
+RUN mvn clean install -DskipTests
 
-CMD ["mvn", "test"]
+CMD ["mvn", "test", "-DsuiteXmlFile=testng.xml"]
